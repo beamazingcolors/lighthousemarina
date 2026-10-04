@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   
   <title id="metaPageTitle">Cancun Lighthouse Marina — El Caribe Mexicano en su Máxima Expresión de Lujo</title>
   <meta name="description" id="metaPageDesc" content="Tours premium, renta de yates privados y transportación VIP en Cancún y Riviera Maya. Muelle oficial en Plaza La Isla 1." />
@@ -44,8 +44,8 @@
             logo: ['Montserrat', 'Cinzel', 'sans-serif']
           },
           boxShadow: {
-            'aura-card': '0 10px 30px -5px rgba(11, 30, 54, 0.07), 0 4px 12px -2px rgba(11, 30, 54, 0.03)',
-            'aura-dock': '0 25px 50px -12px rgba(11, 30, 54, 0.22)',
+            'aura-card': '0 10px 25px -5px rgba(11, 30, 54, 0.05), 0 4px 10px -2px rgba(11, 30, 54, 0.02)',
+            'aura-dock': '0 20px 40px -10px rgba(11, 30, 54, 0.18)',
             'aura-gold': '0 10px 25px -5px rgba(197, 168, 105, 0.4)'
           }
         }
@@ -54,46 +54,53 @@
   </script>
 
   <style>
-    * { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    * { 
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; 
+    }
     
     .btn-aura-gold {
       background: linear-gradient(135deg, #DFBE76 0%, #C5A869 50%, #A68644 100%);
       color: #FFFFFF;
       text-shadow: 0 1px 2px rgba(0,0,0,0.15);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-aura-gold:hover {
-      box-shadow: 0 12px 28px -6px rgba(197, 168, 105, 0.55);
+      box-shadow: 0 10px 24px -4px rgba(197, 168, 105, 0.5);
       transform: translateY(-2px);
     }
     .btn-aura-gold:active { transform: translateY(0); }
 
     input[type=range]::-webkit-slider-thumb {
       appearance: none;
-      height: 22px;
-      width: 22px;
+      height: 24px;
+      width: 24px;
       border-radius: 50%;
       background: #C5A869;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(197, 168, 105, 0.7);
       border: 2px solid #FFFFFF;
     }
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #F8FAFC; }
     ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #C5A869; }
+
+    @media screen and (max-width: 767px) {
+      input, select, textarea { font-size: 16px !important; }
+    }
   </style>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased selection:bg-auraTeal selection:text-white flex flex-col min-h-screen">
+<body class="bg-white text-slate-800 font-sans antialiased selection:bg-auraTeal selection:text-white flex flex-col min-h-screen overflow-x-hidden">
 
   <!-- ==================== HEADER NAVEGACIÓN ==================== -->
   <header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-auraBorder shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
-      <!-- LOGO VECTORIAL SVG AJUSTADO A LA MEDIDA EXACTA -->
-      <a href="#inicio" onclick="navigate('inicio')" class="flex items-center h-full py-2" aria-label="Cancun Lighthouse Marina">
-        <div class="h-16 w-auto flex items-center">
-          <svg viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto max-h-16 group-hover:scale-105 transition-transform duration-300">
+      <!-- LOGO VECTORIAL SVG PROPORCIONADO -->
+      <a href="#inicio" onclick="navigate('inicio')" class="flex items-center h-full py-1.5 focus:outline-none" aria-label="Cancun Lighthouse Marina">
+        <div class="h-10 sm:h-12 md:h-14 w-auto max-w-[130px] sm:max-w-[160px] flex items-center">
+          <svg viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto">
             <defs>
               <linearGradient id="goldGradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#dfba73"/>
@@ -144,38 +151,51 @@
         <button onclick="navigate('contacto')" class="nav-link py-1 hover:text-auraTeal transition-colors" data-page="contacto" data-i18n="nav.contact">Contacto</button>
       </nav>
 
-      <!-- Selector de Moneda, Idioma & Carrito -->
-      <div class="flex items-center gap-3">
-        <button id="currencyToggleBtn" onclick="toggleCurrency()" class="px-3 py-1.5 text-xs font-semibold rounded-full border border-slate-300 bg-white text-slate-700 hover:border-auraTeal transition-colors tracking-wider shadow-sm">
+      <!-- Selector de Moneda, Idioma & Carrito de Cotización -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="currencyToggleBtn" onclick="toggleCurrency()" class="px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold rounded-full border border-slate-300 bg-white text-slate-700 hover:border-auraTeal transition-colors tracking-wider shadow-sm">
           USD ($)
         </button>
 
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 text-xs font-semibold rounded-full border border-slate-300 bg-white text-slate-700 hover:border-auraTeal transition-colors tracking-wider">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold rounded-full border border-slate-300 bg-white text-slate-700 hover:border-auraTeal transition-colors tracking-wider">
           ES | EN
         </button>
 
-        <button onclick="toggleCartDrawer()" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-auraNavy text-white hover:bg-auraNavyLight transition-all shadow-md">
-          <svg class="w-4 h-4 text-auraGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-          <span class="text-xs font-bold tracking-wider uppercase hidden sm:inline" data-i18n="cart.title">Carrito</span>
-          <span id="cartCountBadge" class="w-5 h-5 rounded-full bg-auraTeal text-white font-bold text-[10px] flex items-center justify-center">0</span>
+        <button onclick="toggleCartDrawer()" class="flex items-center gap-1.5 px-3 py-1 sm:py-1.5 rounded-full bg-auraNavy text-white hover:bg-auraNavyLight transition-all shadow-sm">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-auraGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase hidden md:inline" data-i18n="cart.title">Carrito</span>
+          <span id="cartCountBadge" class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-auraTeal text-white font-bold text-[9px] sm:text-[10px] flex items-center justify-center">0</span>
         </button>
 
-        <button onclick="toggleMobileMenu()" class="xl:hidden text-slate-800 p-2 text-2xl focus:outline-none" aria-label="Menú Móvil">
-          ☰
+        <!-- Botón Menú Móvil -->
+        <button onclick="toggleMobileMenu()" class="xl:hidden p-1.5 text-slate-800 rounded-lg hover:bg-slate-100 focus:outline-none" aria-label="Abrir Menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
         </button>
       </div>
     </div>
-
-    <!-- Menú Desplegable Móvil -->
-    <div id="mobileMenu" class="hidden xl:hidden px-6 pt-3 pb-6 space-y-3 bg-white border-t border-auraBorder text-xs uppercase tracking-widest font-semibold text-slate-700">
-      <button onclick="navigate('inicio'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.home">Inicio</button>
-      <button onclick="navigate('catalogo'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.catalog">Tours & Rutas</button>
-      <button onclick="navigate('yates'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.yachts">Yates Privados</button>
-      <button onclick="navigate('transportacion'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.transport">Transportación VIP</button>
-      <button onclick="navigate('cotizador'); toggleMobileMenu()" class="block w-full text-left py-2 text-auraGold font-bold" data-i18n="nav.planner">Cotizador Inteligente</button>
-      <button onclick="navigate('contacto'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.contact">Contacto</button>
-    </div>
   </header>
+
+  <!-- ==================== DRAWER DEL MENÚ MÓVIL ==================== -->
+  <div id="mobileMenuBackdrop" onclick="toggleMobileMenu()" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden xl:hidden transition-opacity"></div>
+  <aside id="mobileMenu" class="fixed top-0 right-0 bottom-0 z-[60] w-72 max-w-[85vw] bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col xl:hidden">
+    <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+      <span class="font-serif text-base font-bold text-slate-900">Navegación</span>
+      <button onclick="toggleMobileMenu()" class="p-1 text-slate-400 hover:text-slate-800 text-2xl font-bold leading-none">✕</button>
+    </div>
+    <div class="p-5 space-y-4 text-xs uppercase tracking-widest font-semibold text-slate-700 flex-1 overflow-y-auto">
+      <button onclick="navigate('inicio'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 hover:text-auraTeal" data-i18n="nav.home">Inicio</button>
+      <button onclick="navigate('catalogo'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 hover:text-auraTeal" data-i18n="nav.catalog">Tours & Rutas</button>
+      <button onclick="navigate('yates'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 hover:text-auraTeal" data-i18n="nav.yachts">Yates Privados</button>
+      <button onclick="navigate('transportacion'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 hover:text-auraTeal" data-i18n="nav.transport">Transportación VIP</button>
+      <button onclick="navigate('cotizador'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-slate-50 text-auraGold font-bold" data-i18n="nav.planner">Cotizador Inteligente</button>
+      <button onclick="navigate('contacto'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-auraTeal" data-i18n="nav.contact">Contacto & Muelle</button>
+    </div>
+    <div class="p-5 bg-slate-50 border-t border-slate-100 text-center">
+      <a href="https://wa.me/529982274928" target="_blank" class="w-full inline-block btn-aura-gold py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-center">
+        WhatsApp Concierge
+      </a>
+    </div>
+  </aside>
 
   <!-- ========================================================================= -->
   <!-- VISTA 1: INICIO                                                          -->
@@ -183,7 +203,7 @@
   <main id="page-inicio" class="page-view flex-1">
     
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-36 lg:pb-44 overflow-hidden bg-slate-900">
+    <section class="relative pt-12 pb-24 sm:pt-20 sm:pb-36 lg:pb-44 overflow-hidden bg-slate-900">
       <div 
         class="absolute inset-0 bg-cover bg-center filter brightness-[0.55]" 
         style="background-image: url('https://lh3.googleusercontent.com/d/1pdq8WWbW7h3G-AOZWIgQfTv8NIvE7uq6=w2000');"
@@ -191,30 +211,31 @@
       ></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30"></div>
 
-      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center text-white pt-6 pb-12">
-        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] max-w-4xl mx-auto mb-6" data-i18n="hero.title">
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center text-white pb-8">
+        <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-snug sm:leading-tight max-w-4xl mx-auto mb-4 sm:mb-6" data-i18n="hero.title">
           El Caribe Mexicano en su Máxima Expresión de <span class="italic text-[#DFBE76] font-normal block sm:inline">Privacidad y Lujo</span>
         </h1>
 
-        <p class="text-slate-200 text-sm sm:text-lg font-light max-w-2xl mx-auto mb-8 leading-relaxed" data-i18n="hero.subtitle">
+        <p class="text-slate-200 text-xs sm:text-base lg:text-lg font-light max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed" data-i18n="hero.subtitle">
           Navegación personalizada, charters de yates privados y expediciones con tripulación ejecutiva desde el muelle de Plaza La Isla 1.
         </p>
       </div>
     </section>
 
     <!-- Floating Search Dock -->
-    <section class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 -mt-24 sm:-mt-28 mb-16">
-      <div class="bg-white rounded-2xl shadow-aura-dock p-6 sm:p-8 border border-auraBorder">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-6 border-b border-slate-100 text-xs">
+    <section class="relative z-20 max-w-5xl mx-auto px-3.5 sm:px-6 -mt-16 sm:-mt-24 mb-12 sm:mb-16">
+      <div class="bg-white rounded-2xl shadow-aura-dock p-4 sm:p-8 border border-auraBorder">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-slate-100 text-xs">
+          
           <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70">
-            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-1" data-i18n="dock.dockLabel">Muelle de Salida</span>
-            <span class="font-bold text-slate-800 text-sm block">Plaza La Isla 1, Cancún</span>
+            <span class="text-[9px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-0.5" data-i18n="dock.dockLabel">Muelle de Salida</span>
+            <span class="font-bold text-slate-800 text-xs sm:text-sm block">Plaza La Isla 1, Cancún</span>
             <span class="text-[10px] text-auraTeal">Zona Hotelera Km 12.5</span>
           </div>
 
           <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70">
-            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-1" data-i18n="dock.activityLabel">Tipo de Actividad</span>
-            <select id="quickExpSelect" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none cursor-pointer">
+            <span class="text-[9px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-0.5" data-i18n="dock.activityLabel">Tipo de Actividad</span>
+            <select id="quickExpSelect" class="w-full bg-transparent font-bold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer">
               <option value="yates" data-i18n="dock.optYachts">Renta de Yates Privados</option>
               <option value="tours" data-i18n="dock.optTours">Tours en Catamarán & Acuáticas</option>
               <option value="parques" data-i18n="dock.optParks">Parques Temáticos Xcaret</option>
@@ -223,9 +244,9 @@
             <span class="text-[10px] text-auraMuted" data-i18n="dock.verified">Catálogo oficial verificado</span>
           </div>
 
-          <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70">
-            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-1" data-i18n="dock.guestsLabel">Huéspedes</span>
-            <select id="quickPaxSelect" class="w-full bg-transparent font-bold text-slate-800 text-sm focus:outline-none cursor-pointer">
+          <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70 sm:col-span-2 lg:col-span-1">
+            <span class="text-[9px] sm:text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-0.5" data-i18n="dock.guestsLabel">Huéspedes</span>
+            <select id="quickPaxSelect" class="w-full bg-transparent font-bold text-slate-800 text-xs sm:text-sm focus:outline-none cursor-pointer">
               <option value="2" data-i18n="dock.pax2">2 Pasajeros (Pareja)</option>
               <option value="4" selected data-i18n="dock.pax4">4 - 6 Pasajeros (Familia)</option>
               <option value="10" data-i18n="dock.pax10">8 - 12 Pasajeros (Grupo)</option>
@@ -235,12 +256,12 @@
           </div>
         </div>
 
-        <div class="pt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div class="text-[11px] text-slate-500 flex items-center gap-2">
+        <div class="pt-4 sm:pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <div class="text-[10px] sm:text-[11px] text-slate-500 flex items-center gap-1.5 text-center sm:text-left">
             <span class="text-auraGold">★</span>
             <span data-i18n="dock.guarantee">Confirmación directa por WhatsApp sin cargos ocultos</span>
           </div>
-          <button onclick="handleQuickSearch()" class="w-full sm:w-auto btn-aura-gold px-8 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold flex items-center justify-center gap-2">
+          <button onclick="handleQuickSearch()" class="w-full sm:w-auto btn-aura-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold flex items-center justify-center gap-2">
             <span data-i18n="dock.exploreBtn">Explorar Opciones Disponibles</span>
             <span class="text-sm">›</span>
           </button>
@@ -249,45 +270,44 @@
     </section>
 
     <!-- Experiencias & Rutas Inolvidables -->
-    <section class="py-16 bg-auraBgOff">
+    <section class="py-12 sm:py-16 bg-auraBgOff">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
           <div>
-            <span class="text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-1" data-i18n="routes.tag">Destinos del Caribe</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-slate-900" data-i18n="routes.title">
+            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-1" data-i18n="routes.tag">Destinos del Caribe</span>
+            <h2 class="font-serif text-2xl sm:text-4xl text-slate-900" data-i18n="routes.title">
               Experiencias & Rutas <span class="italic text-auraTeal font-normal">Inolvidables</span>
             </h2>
           </div>
-          <button onclick="navigate('catalogo')" class="text-xs font-bold uppercase tracking-wider text-auraNavy hover:text-auraGold transition-colors flex items-center gap-1">
-            <span data-i18n="routes.viewAll">Explorar todas las experiencias (48)</span> <span>→</span>
+          <button onclick="navigate('catalogo')" class="text-xs font-bold uppercase tracking-wider text-auraNavy hover:text-auraGold transition-colors flex items-center gap-1 self-start sm:self-auto">
+            <span data-i18n="routes.viewAll">Ver todas (48)</span> <span>→</span>
           </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="homeFeaturedCards"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="homeFeaturedCards"></div>
       </div>
     </section>
 
-    <!-- FLOTA DE YATES INSIGNIA (FORMATO CARRUSEL DINÁMICO) -->
-    <section class="py-20 bg-white">
+    <!-- FLOTA DE YATES INSIGNIA (FORMATO CARRUSEL) -->
+    <section class="py-12 sm:py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
           <div>
-            <span class="text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-2" data-i18n="yachts.tag">Exclusividad en Altamar</span>
-            <h2 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="yachts.title">
+            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-1" data-i18n="yachts.tag">Exclusividad en Altamar</span>
+            <h2 class="font-serif text-2xl sm:text-4xl text-slate-900" data-i18n="yachts.title">
               Flota de Yates <span class="italic text-auraTeal font-normal">Insignia</span>
             </h2>
-            <p class="text-slate-500 text-sm mt-3" data-i18n="yachts.desc">
-              Embarcaciones privadas con salida directa desde el muelle de Plaza La Isla 1. Elige la duración para ver la tarifa al instante.
+            <p class="text-slate-500 text-xs sm:text-sm mt-1.5" data-i18n="yachts.desc">
+              Embarcaciones privadas con salida directa desde el muelle de Plaza La Isla 1.
             </p>
           </div>
-          <!-- Controles de Flechas del Carrusel de Yates -->
-          <div class="flex items-center gap-2">
-            <button onclick="prevYachtSlide()" class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-auraNavy hover:text-auraNavy transition-colors text-lg" title="Anterior">‹</button>
-            <button onclick="nextYachtSlide()" class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-auraNavy hover:text-auraNavy transition-colors text-lg" title="Siguiente">›</button>
+          <!-- Controles de Flechas -->
+          <div class="flex items-center gap-2 self-end sm:self-auto">
+            <button onclick="prevYachtSlide()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-auraNavy hover:text-auraNavy transition-colors text-base" title="Anterior">‹</button>
+            <button onclick="nextYachtSlide()" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-700 hover:border-auraNavy hover:text-auraNavy transition-colors text-base" title="Siguiente">›</button>
           </div>
         </div>
 
-        <!-- Contenedor del Carrusel de Yates -->
         <div class="relative overflow-hidden rounded-2xl p-1">
           <div id="yachtsGridTrack" class="flex transition-transform duration-500 ease-out"></div>
         </div>
@@ -295,24 +315,24 @@
     </section>
 
     <!-- Pre-Footer Banner Azul Medianoche -->
-    <section class="py-16 bg-[#0B1E36] text-white text-center relative overflow-hidden">
+    <section class="py-12 sm:py-16 bg-[#0B1E36] text-white text-center relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <span class="text-[11px] font-bold uppercase tracking-[0.25em] text-auraGold block mb-3" data-i18n="banner.tag">
+        <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-auraGold block mb-2 sm:mb-3" data-i18n="banner.tag">
           ✦ ATENCIÓN PERSONALIZADA EN MUELLE
         </span>
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal mb-4" data-i18n="banner.title">
+        <h2 class="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal mb-3 sm:mb-4">
           ¿Listo para Zarpar hacia el <span class="italic text-auraTealLight font-normal">Paraíso?</span>
         </h2>
-        <p class="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto mb-8 font-light leading-relaxed" data-i18n="banner.subtitle">
+        <p class="text-slate-300 text-xs sm:text-sm lg:text-base max-w-2xl mx-auto mb-6 sm:mb-8 font-light leading-relaxed" data-i18n="banner.subtitle">
           Nuestras embarcaciones y coordinadores náuticos están disponibles para diseñar un itinerario a tu medida en Cancún e Isla Mujeres.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://wa.me/529982274928?text=Hola,%20deseo%20planear%20una%20experiencia%20náutica." target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-3.5 rounded-full font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <a href="https://wa.me/529982274928?text=Hola,%20deseo%20planear%20una%20experiencia%20náutica." target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white px-7 py-3 rounded-full font-bold text-xs tracking-wider uppercase transition-all shadow-lg flex items-center justify-center gap-2">
             <span data-i18n="banner.btnWhatsapp">Conversar por WhatsApp</span>
           </a>
-          <button onclick="navigate('cotizador')" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold text-xs tracking-wider uppercase transition-all" data-i18n="banner.btnPlanner">
-            Cotizador Personalizado
+          <button onclick="navigate('cotizador')" class="w-full sm:w-auto px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold text-xs tracking-wider uppercase transition-all">
+            <span data-i18n="banner.btnPlanner">Cotizador Personalizado</span>
           </button>
         </div>
       </div>
@@ -321,24 +341,24 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- VISTA 2: COTIZADOR INTELIGENTE (SIN CALENDARIO, 1 A 14 DÍAS + BOTÓN)    -->
+  <!-- VISTA 2: COTIZADOR INTELIGENTE                                           -->
   <!-- ========================================================================= -->
-  <main id="page-cotizador" class="page-view hidden flex-1 py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-2" data-i18n="planner.tag">Motor de Vacaciones</span>
-      <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="planner.title">
+  <main id="page-cotizador" class="page-view hidden flex-1 py-10 sm:py-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-1" data-i18n="planner.tag">Motor de Vacaciones</span>
+      <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="planner.title">
         Cotizador de <span class="italic text-auraTeal font-normal">Experiencias</span>
       </h1>
-      <p class="text-slate-500 text-sm mt-3" data-i18n="planner.desc">
+      <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="planner.desc">
         Configura tu grupo de viaje y la duración de tus vacaciones. Ajusta tu presupuesto estimado para ver alternativas en tiempo real.
       </p>
     </div>
 
-    <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-aura-card border border-auraBorder max-w-4xl mx-auto mb-16">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 text-xs">
+    <div class="bg-white p-4 sm:p-8 md:p-10 rounded-2xl shadow-aura-card border border-auraBorder max-w-4xl mx-auto mb-10 sm:mb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8 text-xs">
         <div>
-          <label class="block text-slate-500 uppercase tracking-wider mb-2 font-bold" data-i18n="planner.adults">Adultos</label>
-          <select id="calcAdults" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-sm">
+          <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.adults">Adultos</label>
+          <select id="calcAdults" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
             <option value="1">1 Adulto</option>
             <option value="2" selected>2 Adultos</option>
             <option value="3">3 Adultos</option>
@@ -350,8 +370,8 @@
         </div>
 
         <div>
-          <label class="block text-slate-500 uppercase tracking-wider mb-2 font-bold" data-i18n="planner.children">Niños</label>
-          <select id="calcChildren" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-sm">
+          <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.children">Niños</label>
+          <select id="calcChildren" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
             <option value="0" selected>0 Niños</option>
             <option value="1">1 Niño</option>
             <option value="2">2 Niños</option>
@@ -361,8 +381,8 @@
         </div>
 
         <div>
-          <label class="block text-slate-500 uppercase tracking-wider mb-2 font-bold" data-i18n="planner.days">Días de Actividades</label>
-          <select id="calcDays" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-sm">
+          <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.days">Días de Actividades</label>
+          <select id="calcDays" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
             <option value="1">1 Día de Tour</option>
             <option value="2">2 Días de Tours</option>
             <option value="3" selected>3 Días de Tours</option>
@@ -379,11 +399,11 @@
         </div>
       </div>
 
-      <!-- Barra de Presupuesto Estimado -->
+      <!-- Barra de Presupuesto -->
       <div class="pt-4 border-t border-slate-100">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 sm:mb-3 gap-1">
           <label class="text-xs uppercase tracking-wider text-slate-500 font-bold" data-i18n="planner.budget">Presupuesto Estimado:</label>
-          <div class="font-serif text-2xl sm:text-3xl font-bold text-auraNavy" id="budgetDisplayVal">$1,200 USD</div>
+          <div class="font-serif text-xl sm:text-3xl font-bold text-auraNavy" id="budgetDisplayVal">$1,200 USD</div>
         </div>
 
         <input 
@@ -397,14 +417,14 @@
           class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"
         />
 
-        <div class="flex justify-between text-[11px] text-slate-400 mt-2">
+        <div class="flex justify-between text-[10px] sm:text-[11px] text-slate-400 mt-2">
           <span id="sliderMinLabel">$150 USD</span>
-          <span data-i18n="planner.sliderHint">Se recalcula automáticamente al modificar cualquier valor</span>
+          <span class="text-center truncate px-2" data-i18n="planner.sliderHint">Ajuste automático al modificar valores</span>
           <span id="sliderMaxLabel">$5,000 USD</span>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-slate-100 text-center">
-          <button onclick="runTripPlanner(true)" class="btn-aura-gold px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-aura-gold inline-flex items-center gap-2">
+        <div class="mt-5 pt-4 border-t border-slate-100 text-center">
+          <button onclick="runTripPlanner(true)" class="w-full sm:w-auto btn-aura-gold px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wider shadow-aura-gold inline-flex items-center justify-center gap-2">
             <span data-i18n="planner.quoteBtn">Cotizar Itinerarios Ahora</span>
             <span>›</span>
           </button>
@@ -414,87 +434,87 @@
 
     <!-- Resultados del Planificador -->
     <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-3">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-auraGold block" data-i18n="planner.resTag">Itinerarios Optimizados</span>
-          <h2 class="font-serif text-2xl sm:text-3xl text-slate-900" data-i18n="planner.resTitle">Opciones Recomendadas</h2>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-auraGold block" data-i18n="planner.resTag">Itinerarios Optimizados</span>
+          <h2 class="font-serif text-xl sm:text-3xl text-slate-900" data-i18n="planner.resTitle">Opciones Recomendadas</h2>
         </div>
-        <button onclick="shuffleTripOptions()" class="btn-aura-gold px-6 py-3 rounded-full font-bold text-xs tracking-wider uppercase flex items-center gap-2 shadow-aura-gold">
+        <button onclick="shuffleTripOptions()" class="w-full sm:w-auto btn-aura-gold px-5 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-aura-gold">
           <span data-i18n="planner.moreBtn">✦ Dame más opciones</span>
         </button>
       </div>
 
-      <div id="plannerResultsGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-8"></div>
+      <div id="plannerResultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
     </div>
   </main>
 
   <!-- ========================================================================= -->
-  <!-- VISTA 3: CATÁLOGO COMPLETO (48 ACTIVIDADES)                              -->
+  <!-- VISTA 3: CATÁLOGO COMPLETO                                              -->
   <!-- ========================================================================= -->
-  <main id="page-catalogo" class="page-view hidden flex-1 py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+  <main id="page-catalogo" class="page-view hidden flex-1 py-10 sm:py-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
       <div>
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-2" data-i18n="catalog.tag">Portafolio Oficial Completo</span>
-        <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="catalog.title">
+        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-1" data-i18n="catalog.tag">Portafolio Oficial Completo</span>
+        <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="catalog.title">
           Tours & <span class="italic text-auraTeal font-normal">Excursiones</span>
         </h1>
-        <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="catalog.desc">Haz clic sobre cualquier experiencia para ver detalles, inclusiones y ficha técnica.</p>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1" data-i18n="catalog.desc">Toca sobre cualquier experiencia para ver detalles, inclusiones y ficha técnica.</p>
       </div>
       <div class="w-full md:w-80">
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar por nombre..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-auraTeal shadow-sm" />
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar por nombre..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-auraTeal shadow-sm" />
       </div>
     </div>
 
-    <div class="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-200" id="categoryFilterContainer"></div>
-    <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-6 sm:mb-10 pb-3 border-b border-slate-200" id="categoryFilterContainer"></div>
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
   </main>
 
   <!-- ========================================================================= -->
   <!-- VISTA 4: YATES PRIVADOS                                                 -->
   <!-- ========================================================================= -->
-  <main id="page-yates" class="page-view hidden flex-1 py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-2" data-i18n="yachtsPage.tag">Charter Privado Exclusivo</span>
-      <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="yachtsPage.title">
+  <main id="page-yates" class="page-view hidden flex-1 py-10 sm:py-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-1" data-i18n="yachtsPage.tag">Charter Privado Exclusivo</span>
+      <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="yachtsPage.title">
         Flota de Yates <span class="italic text-auraTeal font-normal">Insignia</span>
       </h1>
-      <p class="text-slate-500 text-sm mt-3" data-i18n="yachtsPage.desc">Salidas directas desde Plaza La Isla 1. Selecciona 1, 4, 6 u 8 horas para conocer la tarifa exacta.</p>
+      <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="yachtsPage.desc">Salidas directas desde Plaza La Isla 1. Selecciona 1, 4, 6 u 8 horas para conocer la tarifa exacta.</p>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" id="yachtsFullGrid"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="yachtsFullGrid"></div>
   </main>
 
   <!-- ========================================================================= -->
   <!-- VISTA 5: TRANSPORTACIÓN PRIVADA                                         -->
   <!-- ========================================================================= -->
-  <main id="page-transportacion" class="page-view hidden flex-1 py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-2" data-i18n="transPage.tag">Movilidad VIP</span>
-      <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="transPage.title">
+  <main id="page-transportacion" class="page-view hidden flex-1 py-10 sm:py-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-1" data-i18n="transPage.tag">Movilidad VIP</span>
+      <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="transPage.title">
         Transportación <span class="italic text-auraTeal font-normal">Privada</span>
       </h1>
-      <p class="text-slate-500 text-sm mt-3" data-i18n="transPage.desc">Traslados ejecutivos aeropuerto-hotel y traslados privados al muelle de Plaza La Isla 1.</p>
+      <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="transPage.desc">Traslados ejecutivos aeropuerto-hotel y traslados privados al muelle de Plaza La Isla 1.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-xl font-bold text-slate-900 mb-4" data-i18n="transPage.formTitle">Cotización de Traslado Terrestre</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-7 bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-3" data-i18n="transPage.formTitle">Cotización de Traslado Terrestre</h2>
         
-        <form onsubmit="handleTransferSubmit(event)" id="transferForm" class="space-y-4 text-xs">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <form onsubmit="handleTransferSubmit(event)" id="transferForm" class="space-y-3 sm:space-y-4 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.origin">Punto de Origen (Recogida) *</label>
-              <input type="text" id="transOrigin" required placeholder="Ej. Aeropuerto T4, Hotel..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+              <input type="text" id="transOrigin" required placeholder="Ej. Aeropuerto T4, Hotel..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
             </div>
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.dest">Punto de Destino *</label>
-              <input type="text" id="transDestination" required placeholder="Ej. Plaza La Isla 1, Tulum..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+              <input type="text" id="transDestination" required placeholder="Ej. Plaza La Isla 1, Tulum..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.pax">Pasajeros *</label>
-              <select id="transPax" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal">
+              <select id="transPax" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs">
                 <option value="1 a 3">1 a 3 Personas</option>
                 <option value="4 a 6" selected>4 a 6 Personas</option>
                 <option value="7 a 10">7 a 10 Personas</option>
@@ -503,39 +523,39 @@
             </div>
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.type">Modalidad</label>
-              <select id="transTripType" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal">
+              <select id="transTripType" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs">
                 <option value="Sencillo">Viaje Sencillo</option>
                 <option value="Redondo">Viaje Redondo</option>
               </select>
             </div>
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.date">Fecha del Servicio *</label>
-              <input type="date" id="transDate" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+              <input type="date" id="transDate" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.name">Nombre del Titular *</label>
-              <input type="text" id="transName" required placeholder="Roberto Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+              <input type="text" id="transName" required placeholder="Roberto Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
             </div>
             <div>
               <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="transPage.phone">Teléfono WhatsApp *</label>
-              <input type="tel" id="transPhone" required placeholder="+52 998 123 4567" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+              <input type="tel" id="transPhone" required placeholder="+52 998 123 4567" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
             </div>
           </div>
 
-          <button type="submit" class="w-full btn-aura-gold py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold" data-i18n="transPage.submit">
+          <button type="submit" class="w-full btn-aura-gold py-3 sm:py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold" data-i18n="transPage.submit">
             Enviar Solicitud a WhatsApp (+52 998 227 4928)
           </button>
         </form>
       </div>
 
-      <div class="lg:col-span-5 bg-white p-6 rounded-2xl shadow-aura-card border border-auraBorder">
-        <div class="h-48 w-full rounded-xl overflow-hidden mb-4">
+      <div class="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl shadow-aura-card border border-auraBorder">
+        <div class="h-40 sm:h-48 w-full rounded-xl overflow-hidden mb-3 sm:mb-4">
           <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Suburban VIP" class="w-full h-full object-cover" />
         </div>
-        <h3 class="font-serif text-lg font-bold text-slate-900 mb-1" data-i18n="transPage.fleetTitle">Unidades Suburban & Escalade</h3>
+        <h3 class="font-serif text-base sm:text-lg font-bold text-slate-900 mb-1" data-i18n="transPage.fleetTitle">Unidades Suburban & Escalade</h3>
         <p class="text-xs text-slate-500 leading-relaxed" data-i18n="transPage.fleetDesc">
           Chofer bilingüe certificado, monitoreo de vuelos en tiempo real, seguro de cobertura amplia y amenidades de hidratación a bordo.
         </p>
@@ -544,58 +564,57 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- VISTA 6: CONTACTO (SIN MAPA)                                             -->
+  <!-- VISTA 6: CONTACTO                                                        -->
   <!-- ========================================================================= -->
-  <main id="page-contacto" class="page-view hidden flex-1 py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto mb-12 text-center">
-      <span class="text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-2" data-i18n="contactPage.tag">Atención Directa</span>
-      <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="contactPage.title">
+  <main id="page-contacto" class="page-view hidden flex-1 py-10 sm:py-16 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto mb-8 sm:mb-12 text-center">
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-auraGold block mb-1" data-i18n="contactPage.tag">Atención Directa</span>
+      <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="contactPage.title">
         Contacto & <span class="italic text-auraTeal font-normal">Muelle</span>
       </h1>
-      <p class="text-slate-500 text-sm mt-3" data-i18n="contactPage.desc">Ponte en contacto directo con nuestro equipo concierge o visítanos en Plaza La Isla 1.</p>
+      <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="contactPage.desc">Ponte en contacto directo con nuestro equipo concierge o visítanos en Plaza La Isla 1.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12 text-xs">
-      <div class="bg-white p-6 rounded-2xl shadow-aura-card border border-auraBorder text-center">
-        <span class="text-2xl mb-2 block">📍</span>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 max-w-4xl mx-auto mb-8 sm:mb-12 text-xs">
+      <div class="bg-white p-5 rounded-2xl shadow-aura-card border border-auraBorder text-center">
+        <span class="text-xl sm:text-2xl mb-1.5 block">📍</span>
         <strong class="font-serif text-slate-900 text-sm block mb-1" data-i18n="contactPage.locTitle">Ubicación</strong>
         <p class="text-slate-500 leading-relaxed">Muelle Plaza La Isla 1, Blvd. Kukulcán Km 12.5, Zona Hotelera, Cancún, Q. Roo, México.</p>
       </div>
-      <div class="bg-white p-6 rounded-2xl shadow-aura-card border border-auraBorder text-center">
-        <span class="text-2xl mb-2 block">💬</span>
+      <div class="bg-white p-5 rounded-2xl shadow-aura-card border border-auraBorder text-center">
+        <span class="text-xl sm:text-2xl mb-1.5 block">💬</span>
         <strong class="font-serif text-slate-900 text-sm block mb-1" data-i18n="contactPage.waTitle">WhatsApp Oficial</strong>
         <p class="text-slate-500 leading-relaxed">+52 998 227 4928<br><span class="text-auraTeal font-bold">Atención personalizada</span></p>
       </div>
-      <div class="bg-white p-6 rounded-2xl shadow-aura-card border border-auraBorder text-center">
-        <span class="text-2xl mb-2 block">🕒</span>
+      <div class="bg-white p-5 rounded-2xl shadow-aura-card border border-auraBorder text-center">
+        <span class="text-xl sm:text-2xl mb-1.5 block">🕒</span>
         <strong class="font-serif text-slate-900 text-sm block mb-1" data-i18n="contactPage.hoursTitle">Horario de Muelle</strong>
         <p class="text-slate-500 leading-relaxed">Lunes a Domingo<br>08:00 AM – 08:00 PM</p>
       </div>
     </div>
 
-    <!-- Formulario de Contacto -->
-    <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-aura-card border border-auraBorder max-w-3xl mx-auto">
-      <h2 class="font-serif text-2xl font-bold text-slate-900 mb-6 text-center" data-i18n="contactPage.formTitle">Envíanos un Mensaje</h2>
-      <form onsubmit="handleContactSubmit(event)" id="contactForm" class="space-y-4 text-xs">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-aura-card border border-auraBorder max-w-3xl mx-auto">
+      <h2 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6 text-center" data-i18n="contactPage.formTitle">Envíanos un Mensaje</h2>
+      <form onsubmit="handleContactSubmit(event)" id="contactForm" class="space-y-3 sm:space-y-4 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="contactPage.name">Nombre Completo *</label>
-            <input type="text" id="contactName" required placeholder="Roberto Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+            <input type="text" id="contactName" required placeholder="Roberto Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
           </div>
           <div>
             <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="contactPage.email">Correo Electrónico *</label>
-            <input type="email" id="contactEmail" required placeholder="roberto@ejemplo.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+            <input type="email" id="contactEmail" required placeholder="roberto@ejemplo.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="contactPage.phone">Teléfono WhatsApp *</label>
-            <input type="tel" id="contactPhone" required placeholder="+52 998 123 4567" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal" />
+            <input type="tel" id="contactPhone" required placeholder="+52 998 123 4567" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
           </div>
           <div>
             <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="contactPage.interest">Tipo de Experiencia</label>
-            <select id="contactType" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal">
+            <select id="contactType" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs">
               <option value="Yates">Renta de Yates Privados</option>
               <option value="Tours">Tours y Actividades Acuáticas</option>
               <option value="Parques">Parques Temáticos (Xcaret, Xel-Há)</option>
@@ -606,10 +625,10 @@
 
         <div>
           <label class="block text-slate-600 uppercase tracking-wider mb-1 font-bold" data-i18n="contactPage.msg">Mensaje *</label>
-          <textarea id="contactMessage" rows="3" required placeholder="Cuéntanos fechas, pasajeros o requerimientos..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-auraTeal"></textarea>
+          <textarea id="contactMessage" rows="3" required placeholder="Cuéntanos fechas, pasajeros o requerimientos..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 focus:outline-none focus:border-auraTeal text-xs"></textarea>
         </div>
 
-        <button type="submit" class="w-full btn-aura-gold py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold" data-i18n="contactPage.submit">
+        <button type="submit" class="w-full btn-aura-gold py-3 sm:py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold" data-i18n="contactPage.submit">
           Enviar Mensaje Directo a WhatsApp (+52 998 227 4928)
         </button>
       </form>
@@ -617,66 +636,66 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- VISTA 7: POLÍTICAS Y RESTRICCIONES (COMPLETAS & DETALLADAS)              -->
+  <!-- VISTA 7: POLÍTICAS Y RESTRICCIONES                                       -->
   <!-- ========================================================================= -->
-  <main id="page-politicas" class="page-view hidden flex-1 py-16 max-w-5xl mx-auto px-4 sm:px-6">
-    <div class="text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-2" data-i18n="policyPage.tag">Marco Normativo y Seguridad</span>
-      <h1 class="font-serif text-3xl sm:text-5xl text-slate-900" data-i18n="policyPage.title">
+  <main id="page-politicas" class="page-view hidden flex-1 py-10 sm:py-16 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-8 sm:mb-12">
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-1" data-i18n="policyPage.tag">Marco Normativo y Seguridad</span>
+      <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl text-slate-900" data-i18n="policyPage.title">
         Políticas & <span class="italic text-auraTeal font-normal">Restricciones</span>
       </h1>
-      <p class="text-slate-500 text-sm mt-3" data-i18n="policyPage.subtitle">Normas operativas, cancelaciones, condiciones de muelle y protocolos de seguridad marítima.</p>
+      <p class="text-slate-500 text-xs sm:text-sm mt-2" data-i18n="policyPage.subtitle">Normas operativas, cancelaciones, condiciones de muelle y protocolos de seguridad marítima.</p>
     </div>
     
-    <div class="space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-lg text-auraNavy mb-3 font-bold flex items-center gap-2">
+    <div class="space-y-4 sm:space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-base sm:text-lg text-auraNavy mb-2 sm:mb-3 font-bold flex items-center gap-2">
           <span class="text-auraGold">1.</span> <span data-i18n="pol.sec1Title">Política de Cancelación y Reembolsos (Anticipación Mínima de 12 Horas)</span>
         </h2>
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3">
           <p>• <strong>Cancelación anticipada:</strong> Toda solicitud de cancelación debe notificarse por escrito al canal oficial con al menos <strong>12 horas de anticipación</strong> al horario reservado para evitar penalizaciones.</p>
           <p>• <strong>Cierre de Puerto y Mal Tiempo:</strong> Si Capitanía de Puerto decreta bandera roja o suspensión de actividades náuticas por condiciones climáticas adversas, el huésped podrá reprogramar su actividad sin costo alguno o recibir el 100% de reembolso de los conceptos operados directamente.</p>
           <p>• <strong>No-Show (Inasistencia):</strong> Si el cliente no se presenta en el muelle a la hora acordada sin aviso previo de 12 horas, se considerará servicio devengado y no será reembolsable.</p>
         </div>
       </div>
 
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-lg text-auraNavy mb-3 font-bold flex items-center gap-2">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-base sm:text-lg text-auraNavy mb-2 sm:mb-3 font-bold flex items-center gap-2">
           <span class="text-auraGold">2.</span> <span data-i18n="pol.sec2Title">Cuotas de Muelle, Impuestos Federales y Áreas Protegidas</span>
         </h2>
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3">
           <p>• <strong>Derecho de Muelle:</strong> Las salidas desde Plaza La Isla 1 o terminales de ferry pueden devengar una cuota de uso de muelle fija por persona según la duración de la embarcación (especificada en la cotización).</p>
           <p>• <strong>Brazalete Parque Marino CONANP:</strong> Para actividades de snorkel en arrecifes protegidos (Parque Nacional Costa Occidental de Isla Mujeres, Punta Cancún y Punta Nizuc), se requiere portar el brazalete federal de conservación.</p>
         </div>
       </div>
 
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-lg text-auraNavy mb-3 font-bold flex items-center gap-2">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-base sm:text-lg text-auraNavy mb-2 sm:mb-3 font-bold flex items-center gap-2">
           <span class="text-auraGold">3.</span> <span data-i18n="pol.sec3Title">Seguridad Náutica y Autoridad del Capitán</span>
         </h2>
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3">
           <p>• <strong>Autoridad irrevocable:</strong> Por legislación marítima de la SCT, el Capitán a bordo tiene la autoridad final e inapelable para modificar la ruta, suspender el nado o regresar a muelle si considera que el estado del mar o la conducta de algún pasajero compromete la seguridad colectiva.</p>
           <p>• <strong>Chalecos salvavidas:</strong> El uso de chaleco salvavidas es de carácter <strong>estrictamente obligatorio</strong> durante la actividad de snorkel y durante maniobras náuticas en lanchas rápidas.</p>
           <p>• <strong>Cero Tolerancia:</strong> Queda estrictamente prohibido el porte o consumo de sustancias estupefacientes a bordo. El consumo de alcohol en yates debe ser moderado y responsable.</p>
         </div>
       </div>
 
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-lg text-auraNavy mb-3 font-bold flex items-center gap-2">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-base sm:text-lg text-auraNavy mb-2 sm:mb-3 font-bold flex items-center gap-2">
           <span class="text-auraGold">4.</span> <span data-i18n="pol.sec4Title">Restricciones Médicas y de Salud</span>
         </h2>
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3">
           <p>• <strong>Mujeres embarazadas:</strong> Por seguridad médica, no se recomienda la participación de mujeres embarazadas en actividades de alta velocidad (Jungle Tour, motos de agua, tirolesas o lanchas rápidas).</p>
           <p>• <strong>Condiciones preexistentes:</strong> Personas con problemas severos de columna, cuello, cirugías recientes o afecciones cardíacas deben abstenerse de actividades con impacto.</p>
           <p>• <strong>Menores de edad:</strong> Los menores deben estar acompañados en todo momento por un adulto responsable y utilizar chaleco salvavidas a su medida.</p>
         </div>
       </div>
 
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
-        <h2 class="font-serif text-lg text-auraNavy mb-3 font-bold flex items-center gap-2">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-aura-card border border-auraBorder">
+        <h2 class="font-serif text-base sm:text-lg text-auraNavy mb-2 sm:mb-3 font-bold flex items-center gap-2">
           <span class="text-auraGold">5.</span> <span data-i18n="pol.sec5Title">Recomendaciones y Cuidado del Arrecife</span>
         </h2>
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3">
           <p>• <strong>Bloqueador biodegradable:</strong> En arrecifes y cenotes sólo está permitido el uso de protector solar 100% biodegradable libre de oxibenzona y octinoxato.</p>
           <p>• <strong>Prohibido tocar fauna:</strong> Queda estrictamente prohibido tocar corales, sacar estrellas de mar a la superficie o alimentar fauna marina.</p>
           <p>• <strong>Indumentaria recomendada:</strong> Traje de baño puesto, muda de ropa seca, toalla personal, calzado náutico y dinero en efectivo para propinas o souvenirs locales.</p>
@@ -686,12 +705,12 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-white border-t border-auraBorder pt-16 pb-8 mt-auto">
+  <footer class="bg-white border-t border-auraBorder pt-12 sm:pt-16 pb-8 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- LOGO VECTORIAL SVG EN FOOTER -->
-      <div class="flex justify-center mb-10">
-        <div class="w-40 sm:w-48 h-auto flex items-center justify-center">
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <div class="w-36 sm:w-44 h-auto flex items-center justify-center">
           <svg viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
             <defs>
               <linearGradient id="goldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -733,13 +752,13 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8 text-xs text-slate-600">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-8 text-xs text-slate-600">
         <div>
-          <span class="font-serif text-base text-slate-900 uppercase font-bold block mb-2">Cancun Lighthouse Marina</span>
-          <p class="leading-relaxed mb-4">
+          <span class="font-serif text-sm sm:text-base text-slate-900 uppercase font-bold block mb-1.5">Cancun Lighthouse Marina</span>
+          <p class="leading-relaxed mb-3">
             Muelle Plaza La Isla 1, Blvd. Kukulcán Km 12.5, Zona Hotelera, Cancún, Quintana Roo, México.
           </p>
-          <div class="flex items-center gap-4 tracking-wider uppercase text-slate-500 font-bold">
+          <div class="flex items-center gap-3 tracking-wider uppercase text-slate-500 font-bold">
             <a href="https://instagram.com" target="_blank" class="hover:text-auraGold transition-colors">Instagram</a>
             <span class="text-slate-300">|</span>
             <a href="https://facebook.com" target="_blank" class="hover:text-auraGold transition-colors">Facebook</a>
@@ -749,8 +768,8 @@
         </div>
 
         <div>
-          <h4 class="font-bold uppercase tracking-widest text-slate-900 mb-4" data-i18n="footer.navTitle">Navegación</h4>
-          <ul class="space-y-2">
+          <h4 class="font-bold uppercase tracking-widest text-slate-900 mb-3" data-i18n="footer.navTitle">Navegación</h4>
+          <ul class="space-y-1.5">
             <li><button onclick="navigate('inicio')" class="hover:text-auraTeal" data-i18n="nav.home">Inicio</button></li>
             <li><button onclick="navigate('catalogo')" class="hover:text-auraTeal" data-i18n="nav.catalog">Catálogo de Tours</button></li>
             <li><button onclick="navigate('yates')" class="hover:text-auraTeal" data-i18n="nav.yachts">Flota de Yates</button></li>
@@ -761,8 +780,8 @@
         </div>
 
         <div>
-          <h4 class="font-bold uppercase tracking-widest text-slate-900 mb-4" data-i18n="footer.policyTitle">Políticas y Restricciones</h4>
-          <ul class="space-y-2">
+          <h4 class="font-bold uppercase tracking-widest text-slate-900 mb-3" data-i18n="footer.policyTitle">Políticas y Restricciones</h4>
+          <ul class="space-y-1.5">
             <li><button onclick="navigate('politicas')" class="hover:text-auraTeal text-left" data-i18n="footer.pol1">Políticas de Cancelación (12 Horas)</button></li>
             <li><button onclick="navigate('politicas')" class="hover:text-auraTeal text-left" data-i18n="footer.pol2">Normas de Seguridad en Muelle</button></li>
             <li><button onclick="navigate('politicas')" class="hover:text-auraTeal text-left" data-i18n="footer.pol3">Recomendaciones para Huéspedes</button></li>
@@ -770,7 +789,7 @@
         </div>
       </div>
 
-      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-4">
+      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2 sm:gap-4 text-center sm:text-left">
         <span>&copy; 2026 Cancun Lighthouse Marina. Todos los derechos reservados.</span>
         <span>Plaza La Isla 1 · Blvd. Kukulcán · Cancún, Q.R.</span>
       </div>
@@ -778,64 +797,439 @@
   </footer>
 
   <!-- ==================== MODAL DE DETALLES ==================== -->
-  <div id="detailModalBackdrop" onclick="handleBackdropClick(event)" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div id="detailModalCard" class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-auraBorder relative">
-      <button onclick="closeItemDetailModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm">
+  <div id="detailModalBackdrop" onclick="handleBackdropClick(event)" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="detailModalCard" class="bg-white rounded-t-3xl sm:rounded-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-auraBorder relative">
+      <button onclick="closeItemDetailModal()" class="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-xs sm:text-sm">
         ✕
       </button>
-      <div id="detailModalContent" class="p-6 sm:p-8"></div>
+      <div id="detailModalContent" class="p-5 sm:p-8"></div>
     </div>
   </div>
 
-  <!-- ==================== DRAWER DEL CARRITO CON RANGO Y NOCHES ==================== -->
+  <!-- ==================== DRAWER DEL CARRITO ==================== -->
   <div id="cartDrawerBackdrop" onclick="toggleCartDrawer()" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden transition-opacity"></div>
-  <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
-    <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+  <aside id="cartDrawer" class="fixed top-0 right-0 bottom-0 z-[60] w-full sm:max-w-md bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-auraGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-        <h3 class="font-serif text-xl text-slate-900 font-bold" data-i18n="cart.header">Carrito de Cotización</h3>
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-auraGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <h3 class="font-serif text-lg sm:text-xl text-slate-900 font-bold" data-i18n="cart.header">Carrito de Cotización</h3>
       </div>
-      <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-slate-800 text-2xl leading-none">✕</button>
+      <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-slate-800 text-2xl leading-none p-1">✕</button>
     </div>
 
-    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4"></div>
 
-    <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4 text-xs">
+    <div class="p-4 sm:p-6 border-t border-slate-100 bg-slate-50 space-y-3 sm:space-y-4 text-xs">
       <div class="space-y-2">
         <input type="text" id="cartCustomerName" placeholder="Tu Nombre Completo *" required class="w-full bg-white border border-slate-300 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-auraTeal text-xs" />
         
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1" data-i18n="cart.start">Inicio de Vacaciones</label>
-            <input type="date" id="cartStartDate" onchange="calculateCartNights()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 text-xs focus:outline-none focus:border-auraTeal" />
+            <label class="block text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 mb-0.5" data-i18n="cart.start">Inicio de Vacaciones</label>
+            <input type="date" id="cartStartDate" onchange="calculateCartNights()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 text-[11px] sm:text-xs focus:outline-none focus:border-auraTeal" />
           </div>
           <div>
-            <label class="block text-[10px] uppercase font-bold text-slate-500 mb-1" data-i18n="cart.end">Fin de Vacaciones</label>
-            <input type="date" id="cartEndDate" onchange="calculateCartNights()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 text-xs focus:outline-none focus:border-auraTeal" />
+            <label class="block text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 mb-0.5" data-i18n="cart.end">Fin de Vacaciones</label>
+            <input type="date" id="cartEndDate" onchange="calculateCartNights()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-800 text-[11px] sm:text-xs focus:outline-none focus:border-auraTeal" />
           </div>
         </div>
 
-        <div id="cartNightsDisplay" class="text-center py-1.5 px-2 rounded-lg bg-teal-50 text-auraTeal font-bold text-[11px] border border-teal-200">
+        <div id="cartNightsDisplay" class="text-center py-1.5 px-2 rounded-lg bg-teal-50 text-auraTeal font-bold text-[10px] sm:text-[11px] border border-teal-200">
           Estadía: Selecciona fechas
         </div>
       </div>
 
-      <div class="flex justify-between items-center text-sm pt-2">
+      <div class="flex justify-between items-center text-sm pt-1">
         <span class="text-slate-500 uppercase tracking-wider font-bold" data-i18n="cart.total">Total Estimado:</span>
-        <span class="font-serif text-2xl font-bold text-auraNavy" id="cartTotalDisplay">$0 USD</span>
+        <span class="font-serif text-xl sm:text-2xl font-bold text-auraNavy" id="cartTotalDisplay">$0 USD</span>
       </div>
 
-      <button onclick="submitCartToWhatsApp()" class="w-full btn-aura-gold py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-aura-gold">
+      <button onclick="submitCartToWhatsApp()" class="w-full btn-aura-gold py-3 sm:py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-aura-gold">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
         <span data-i18n="cart.sendBtn">Solicitar Cotización a WhatsApp</span>
       </button>
     </div>
   </aside>
 
-  <!-- ==================== LÓGICA DE CARRUSEL DE YATES & FUNCIONES ==================== -->
+  <!-- ==================== MOTOR JAVASCRIPT COMPLETO Y VERIFICADO ==================== -->
   <script>
+    // 1. Diccionario Bilingüe
+    const I18N = {
+      es: {
+        "nav.home": "Inicio",
+        "nav.catalog": "Tours & Rutas",
+        "nav.yachts": "Yates Privados",
+        "nav.transport": "Transportación",
+        "nav.planner": "Cotizador Inteligente",
+        "nav.contact": "Contacto",
+        "cart.title": "Carrito",
+        "hero.title": "El Caribe Mexicano en su Máxima Expresión de <span class=\"italic text-[#DFBE76] font-normal block sm:inline\">Privacidad y Lujo</span>",
+        "hero.subtitle": "Navegación personalizada, charters de yates privados y expediciones con tripulación ejecutiva desde el muelle de Plaza La Isla 1.",
+        "dock.dockLabel": "Muelle de Salida",
+        "dock.activityLabel": "Tipo de Actividad",
+        "dock.optYachts": "Renta de Yates Privados",
+        "dock.optTours": "Tours en Catamarán & Acuáticas",
+        "dock.optParks": "Parques Temáticos Xcaret",
+        "dock.optTransport": "Transportación VIP",
+        "dock.verified": "Catálogo oficial verificado",
+        "dock.guestsLabel": "Huéspedes",
+        "dock.pax2": "2 Pasajeros (Pareja)",
+        "dock.pax4": "4 - 6 Pasajeros (Familia)",
+        "dock.pax10": "8 - 12 Pasajeros (Grupo)",
+        "dock.pax15": "Hasta 15 Pasajeros (Yate)",
+        "dock.care": "Atención personalizada",
+        "dock.guarantee": "Confirmación directa por WhatsApp sin cargos ocultos",
+        "dock.exploreBtn": "Explorar Opciones Disponibles",
+        "routes.tag": "Destinos del Caribe",
+        "routes.title": "Experiencias & Rutas <span class=\"italic text-auraTeal font-normal\">Inolvidables</span>",
+        "routes.viewAll": "Ver todas (48)",
+        "yachts.tag": "Exclusividad en Altamar",
+        "yachts.title": "Flota de Yates <span class=\"italic text-auraTeal font-normal\">Insignia</span>",
+        "yachts.desc": "Embarcaciones privadas con salida directa desde el muelle de Plaza La Isla 1.",
+        "banner.tag": "✦ ATENCIÓN PERSONALIZADA EN MUELLE",
+        "banner.title": "¿Listo para Zarpar hacia el <span class=\"italic text-auraTealLight font-normal\">Paraíso?</span>",
+        "banner.subtitle": "Nuestras embarcaciones y coordinadores náuticos están disponibles para diseñar un itinerario a tu medida en Cancún e Isla Mujeres.",
+        "banner.btnWhatsapp": "Conversar por WhatsApp",
+        "banner.btnPlanner": "Cotizador Personalizado",
+        "planner.tag": "Motor de Vacaciones",
+        "planner.title": "Cotizador de <span class=\"italic text-auraTeal font-normal\">Experiencias</span>",
+        "planner.desc": "Configura tu grupo de viaje y la duración de tus vacaciones. Ajusta tu presupuesto estimado para ver alternativas en tiempo real.",
+        "planner.adults": "Adultos",
+        "planner.children": "Niños",
+        "planner.days": "Días de Actividades",
+        "planner.budget": "Presupuesto Estimado:",
+        "planner.sliderHint": "Ajuste automático al modificar valores",
+        "planner.quoteBtn": "Cotizar Itinerarios Ahora",
+        "planner.resTag": "Itinerarios Optimizados",
+        "planner.resTitle": "Opciones Recomendadas",
+        "planner.moreBtn": "✦ Dame más opciones",
+        "catalog.tag": "Portafolio Oficial Completo",
+        "catalog.title": "Tours & <span class=\"italic text-auraTeal font-normal\">Excursiones</span>",
+        "catalog.desc": "Toca sobre cualquier experiencia para ver detalles, inclusiones y ficha técnica.",
+        "yachtsPage.tag": "Charter Privado Exclusivo",
+        "yachtsPage.title": "Flota de Yates <span class=\"italic text-auraTeal font-normal\">Insignia</span>",
+        "yachtsPage.desc": "Salidas directas desde Plaza La Isla 1. Selecciona 1, 4, 6 u 8 horas para conocer la tarifa exacta.",
+        "transPage.tag": "Movilidad VIP",
+        "transPage.title": "Transportación <span class=\"italic text-auraTeal font-normal\">Privada</span>",
+        "transPage.desc": "Traslados ejecutivos aeropuerto-hotel y traslados privados al muelle de Plaza La Isla 1.",
+        "transPage.formTitle": "Cotización de Traslado Terrestre",
+        "transPage.origin": "Punto de Origen (Recogida) *",
+        "transPage.dest": "Punto de Destino *",
+        "transPage.pax": "Pasajeros *",
+        "transPage.type": "Modalidad",
+        "transPage.date": "Fecha del Servicio *",
+        "transPage.name": "Nombre del Titular *",
+        "transPage.phone": "Teléfono WhatsApp *",
+        "transPage.submit": "Enviar Solicitud a WhatsApp (+52 998 227 4928)",
+        "transPage.fleetTitle": "Unidades Suburban & Escalade",
+        "transPage.fleetDesc": "Chofer bilingüe certificado, monitoreo de vuelos en tiempo real, seguro de cobertura amplia y amenidades de hidratación a bordo.",
+        "contactPage.tag": "Atención Directa",
+        "contactPage.title": "Contacto & <span class=\"italic text-auraTeal font-normal\">Muelle</span>",
+        "contactPage.desc": "Ponte en contacto directo con nuestro equipo concierge o visítanos en Plaza La Isla 1.",
+        "contactPage.locTitle": "Ubicación",
+        "contactPage.waTitle": "WhatsApp Oficial",
+        "contactPage.hoursTitle": "Horario de Muelle",
+        "contactPage.formTitle": "Envíanos un Mensaje",
+        "contactPage.name": "Nombre Completo *",
+        "contactPage.email": "Correo Electrónico *",
+        "contactPage.phone": "Teléfono WhatsApp *",
+        "contactPage.interest": "Tipo de Experiencia",
+        "contactPage.msg": "Mensaje *",
+        "contactPage.submit": "Enviar Mensaje Directo a WhatsApp (+52 998 227 4928)",
+        "policyPage.tag": "Marco Normativo y Seguridad",
+        "policyPage.title": "Políticas & <span class=\"italic text-auraTeal font-normal\">Restricciones</span>",
+        "policyPage.subtitle": "Normas operativas, cancelaciones, condiciones de muelle y protocolos de seguridad marítima.",
+        "pol.sec1Title": "1. Política de Cancelación y Reembolsos (Anticipación Mínima de 12 Horas)",
+        "pol.sec2Title": "2. Cuotas de Muelle, Impuestos Federales y Áreas Protegidas",
+        "pol.sec3Title": "3. Seguridad Náutica y Autoridad del Capitán",
+        "pol.sec4Title": "4. Restricciones Médicas y de Salud",
+        "pol.sec5Title": "5. Recomendaciones y Cuidado del Arrecife",
+        "footer.navTitle": "Navegación",
+        "footer.policyTitle": "Políticas y Restricciones",
+        "footer.pol1": "Políticas de Cancelación (12 Horas)",
+        "footer.pol2": "Normas de Seguridad en Muelle",
+        "footer.pol3": "Recomendaciones para Huéspedes",
+        "cart.header": "Carrito de Cotización",
+        "cart.start": "Inicio de Vacaciones",
+        "cart.end": "Fin de Vacaciones",
+        "cart.total": "Total Estimado:",
+        "cart.sendBtn": "Solicitar Cotización a WhatsApp"
+      },
+      en: {
+        "nav.home": "Home",
+        "nav.catalog": "Tours & Routes",
+        "nav.yachts": "Private Yachts",
+        "nav.transport": "Transportation",
+        "nav.planner": "Smart Quoter",
+        "nav.contact": "Contact",
+        "cart.title": "Cart",
+        "hero.title": "The Mexican Caribbean in its Utmost Expression of <span class=\"italic text-[#DFBE76] font-normal block sm:inline\">Privacy & Luxury</span>",
+        "hero.subtitle": "Bespoke yacht charters, private ocean expeditions, and curated crewed journeys from the Plaza La Isla 1 Marina dock.",
+        "dock.dockLabel": "Departure Dock",
+        "dock.activityLabel": "Activity Type",
+        "dock.optYachts": "Private Yacht Charters",
+        "dock.optTours": "Catamaran & Water Tours",
+        "dock.optParks": "Xcaret Eco-Theme Parks",
+        "dock.optTransport": "VIP Chauffeur Transfers",
+        "dock.verified": "Verified official catalog",
+        "dock.guestsLabel": "Guests",
+        "dock.pax2": "2 Guests (Couples)",
+        "dock.pax4": "4 - 6 Guests (Family)",
+        "dock.pax10": "8 - 12 Guests (Group)",
+        "dock.pax15": "Up to 15 Guests (Yacht)",
+        "dock.care": "Dedicated concierge service",
+        "dock.guarantee": "Direct WhatsApp confirmation with zero hidden fees",
+        "dock.exploreBtn": "Explore Available Options",
+        "routes.tag": "Caribbean Destinations",
+        "routes.title": "Unforgettable <span class=\"italic text-auraTeal font-normal\">Experiences & Routes</span>",
+        "routes.viewAll": "View all (48)",
+        "yachts.tag": "Open-Sea Exclusivity",
+        "yachts.title": "Flagship <span class=\"italic text-auraTeal font-normal\">Yacht Fleet</span>",
+        "yachts.desc": "Private luxury vessels with direct departure from Plaza La Isla 1.",
+        "banner.tag": "✦ BESPOKE CONCIERGE AT THE DOCK",
+        "banner.title": "Ready to Sail towards <span class=\"italic text-auraTealLight font-normal\">Paradise?</span>",
+        "banner.subtitle": "Our vessels and nautical directors are ready to craft your custom voyage across Cancun and Isla Mujeres.",
+        "banner.btnWhatsapp": "Chat on WhatsApp",
+        "banner.btnPlanner": "Personalized Quoter",
+        "planner.tag": "Vacation Engine",
+        "planner.title": "Experience <span class=\"italic text-auraTeal font-normal\">Quoter</span>",
+        "planner.desc": "Set your travel party and the duration of your trip. Adjust your estimated budget to see curated combinations in real-time.",
+        "planner.adults": "Adults",
+        "planner.children": "Children",
+        "planner.days": "Activity Days",
+        "planner.budget": "Estimated Budget:",
+        "planner.sliderHint": "Recalculates automatically upon modifying values",
+        "planner.quoteBtn": "Quote Itineraries Now",
+        "planner.resTag": "Optimized Itineraries",
+        "planner.resTitle": "Recommended Options",
+        "planner.moreBtn": "✦ Give me more options",
+        "catalog.tag": "Official Complete Portfolio",
+        "catalog.title": "Tours & <span class=\"italic text-auraTeal font-normal\">Excursions</span>",
+        "catalog.desc": "Tap any experience to review inclusions, operational guidelines, and specifications.",
+        "yachtsPage.tag": "Private Charter Exclusivity",
+        "yachtsPage.title": "Flagship <span class=\"italic text-auraTeal font-normal\">Yacht Fleet</span>",
+        "yachtsPage.desc": "Direct departure from Plaza La Isla 1. Select 1, 4, 6, or 8 hours to review the pricing.",
+        "transPage.tag": "VIP Land Mobility",
+        "transPage.title": "Private <span class=\"italic text-auraTeal font-normal\">Transportation</span>",
+        "transPage.desc": "Executive airport-to-hotel and dock transfers throughout Cancun and Riviera Maya.",
+        "transPage.formTitle": "Land Transfer Quote Request",
+        "transPage.origin": "Pick-up Location *",
+        "transPage.dest": "Drop-off Location *",
+        "transPage.pax": "Passengers *",
+        "transPage.type": "Trip Mode",
+        "transPage.date": "Service Date *",
+        "transPage.name": "Full Name *",
+        "transPage.phone": "WhatsApp Phone *",
+        "transPage.submit": "Submit Request via WhatsApp (+52 998 227 4928)",
+        "transPage.fleetTitle": "Suburban & Escalade Fleet",
+        "transPage.fleetDesc": "Bilingual certified drivers, live flight telemetry tracking, comprehensive insurance, and cold bottled hydration on board.",
+        "contactPage.tag": "Direct Inquiries",
+        "contactPage.title": "Contact & <span class=\"italic text-auraTeal font-normal\">Dock</span>",
+        "contactPage.desc": "Reach out directly to our nautical concierge or visit our Plaza La Isla 1 marina.",
+        "contactPage.locTitle": "Location",
+        "contactPage.waTitle": "Official WhatsApp",
+        "contactPage.hoursTitle": "Dock Hours",
+        "contactPage.formTitle": "Send Us a Message",
+        "contactPage.name": "Full Name *",
+        "contactPage.email": "Email Address *",
+        "contactPage.phone": "WhatsApp Phone *",
+        "contactPage.interest": "Area of Interest",
+        "contactPage.msg": "Message *",
+        "contactPage.submit": "Send Message to WhatsApp (+52 998 227 4928)",
+        "policyPage.tag": "Maritime Regulations & Safety",
+        "policyPage.title": "Policies & <span class=\"italic text-auraTeal font-normal\">Restrictions</span>",
+        "policyPage.subtitle": "Operational protocols, cancellations, dock fee disclaimers, and nautical safety standards.",
+        "pol.sec1Title": "1. Cancellation and Refund Policy (12-Hour Minimum Advance Notice)",
+        "pol.sec2Title": "2. Dock Fees, Federal Park Taxes and Environmental Conservation",
+        "pol.sec3Title": "3. Nautical Safety and Captain's Irrevocable Authority",
+        "pol.sec4Title": "4. Medical, Pregnancy and Health Restrictions",
+        "pol.sec5Title": "5. Environmental Dress Code and Coral Reef Conservation",
+        "footer.navTitle": "Navigation",
+        "footer.policyTitle": "Policies & Guidelines",
+        "footer.pol1": "Cancellation Policy (12 Hours)",
+        "footer.pol2": "Marina Dock Regulations",
+        "footer.pol3": "Guest Health Recommendations",
+        "cart.header": "Quote Cart",
+        "cart.start": "Vacation Start Date",
+        "cart.end": "Vacation End Date",
+        "cart.total": "Estimated Total:",
+        "cart.sendBtn": "Request Quote via WhatsApp"
+      }
+    };
+
+    // 2. Catálogo Completo (48 actividades de la hoja)
+    const CATALOG = [
+      { id: "cat-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Catamarán a Isla Mujeres", nameEn: "Isla Mujeres Luxury Catamaran", baseCurrency: "USD", rate: 18.0, adultUsd: 75, childUsd: 65, notes: "Snorkel en arrecife barra libre y almuerzo buffet", driveId: "1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL" },
+      { id: "jungle-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Jungle Tour", nameEn: "Jungle Tour Speedboat", baseCurrency: "USD", rate: 18.0, adultUsd: 50, childUsd: 30, notes: "Lancha rápida biplaza laguna Nichupté y snorkel Nizuc", driveId: "1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U" },
+      { id: "jungle-combo-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Jungle Tour Combo Jetsky", nameEn: "Jungle Tour Jetski Combo", baseCurrency: "USD", rate: 18.0, adultUsd: 180, childUsd: "not_applicable", notes: "Jungle Tour + 30 min moto acuática", driveId: "1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD" },
+      { id: "jungle-combo-02", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Jungle Tour Combo Flyboard (20 min)", nameEn: "Jungle Tour Flyboard Combo (20 min)", baseCurrency: "USD", rate: 18.0, adultUsd: 355, childUsd: "not_applicable", notes: "Flyboard 20 min + lancha en manglares", driveId: "1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX" },
+      { id: "buceo-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Buceo Cancún", nameEn: "Cancun Scuba Diving", baseCurrency: "USD", rate: 18.0, adultUsd: 118, childUsd: "not_applicable", notes: "Arrecifes vírgenes y museo subacuático MUSA", driveId: "18vcW-0F2DFtslzZ1UmFrta48pKcZAZMk" },
+      { id: "clear-boat-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Clear Boat Cancún", nameEn: "100% Clear Transparent Boat", baseCurrency: "USD", rate: 18.0, adultUsd: 40, childUsd: 35, notes: "Barco 100% transparente para ver fondo marino", driveId: "1yFTztl2xxl9miauwKa0CozTslNk8koeh" },
+      { id: "atv-single-01", type: "Tour", category: "Aventura", combo: "Individual", nameEs: "ATVs Single", nameEn: "Single ATV Jungle Tour", baseCurrency: "USD", rate: 18.0, adultUsd: 85, childUsd: "not_applicable", notes: "Cuatrimoto individual 4x4 tirolesas y cenote", driveId: "1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp" },
+      { id: "atv-share-01", type: "Tour", category: "Aventura", combo: "Individual", nameEs: "ATVs Share", nameEn: "Shared ATV Jungle Tour", baseCurrency: "USD", rate: 18.0, adultUsd: 75, childUsd: 65, notes: "Cuatrimoto doble compartida por persona", driveId: "1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c" },
+      { id: "hook-carne-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Capitán Hook Promo Carne", nameEn: "Captain Hook Steak Dinner Cruise", baseCurrency: "USD", rate: 18.0, adultUsd: 110, childUsd: "free", notes: "Galeón pirata nocturno cena corte New York", driveId: "1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b" },
+      { id: "hook-pollo-01", type: "Tour", category: "Acuáticas", combo: "Individual", nameEs: "Capitán Hook Promo Pollo", nameEn: "Captain Hook Chicken Dinner Cruise", baseCurrency: "USD", rate: 18.0, adultUsd: 100, childUsd: "free", notes: "Galeón pirata nocturno cena pechuga de pollo", driveId: "1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5" },
+      { id: "xcaret-plus", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xcaret Plus", nameEn: "Xcaret Plus All-Inclusive", baseCurrency: "USD", rate: 18.5, adultUsd: 220, childUsd: 160, notes: "Ríos subterráneos show nocturno y comida buffet", driveId: "1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW" },
+      { id: "xel-ha", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xel-Há", nameEn: "Xel-Há Natural Waterpark", baseCurrency: "USD", rate: 18.5, adultUsd: 168, childUsd: 125, notes: "Caleta todo incluido snorkel y faro tobogán", driveId: "1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7" },
+      { id: "xplor-dia", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xplor Día", nameEn: "Xplor Adventure Day", baseCurrency: "USD", rate: 18.5, adultUsd: 187, childUsd: 137, notes: "Tirolesas vehículos anfibios y cavernas", driveId: "1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF" },
+      { id: "xplor-fuego", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xplor Fuego", nameEn: "Xplor Fuego Night Adventure", baseCurrency: "USD", rate: 18.5, adultUsd: 169, childUsd: 125, notes: "Aventura nocturna con antorchas y buffet BBQ", driveId: "11MZKROxwAKzKtz7pWaCEudrYEODUJJvv" },
+      { id: "xoximilco", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xoximilco", nameEn: "Xoximilco Mexican Fiesta", baseCurrency: "USD", rate: 18.5, adultUsd: 135, childUsd: 108, notes: "Trajineras mariachi cena mexicana y barra libre", driveId: "1h-AvkTNT3yz8P56tieTegJg9VdE0Woix" },
+      { id: "xenotes", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xenotes Enigmático", nameEn: "Xenotes Oasis Maya", baseCurrency: "USD", rate: 18.5, adultUsd: 149, childUsd: 114, notes: "Ruta exclusiva por 4 tipos de cenotes con rappel", driveId: "1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE" },
+      { id: "xenses", type: "Parque", category: "Parques", combo: "Individual", nameEs: "Xenses", nameEn: "Xenses Sensory Park", baseCurrency: "USD", rate: 18.5, adultUsd: 115, childUsd: 87, notes: "Parque sensorial ilusiones ópticas y vuelo tirolesa", driveId: "1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh" },
+      { id: "chichen-clasico", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Chichén Clásico", nameEn: "Chichen Itza Classic", baseCurrency: "USD", rate: 18.0, adultUsd: 70, childUsd: 65, notes: "Transporte entrada ruinas cenote y comida yucateca" },
+      { id: "chichen-vip", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Chichén VIP", nameEn: "Chichen Itza VIP Deluxe", baseCurrency: "USD", rate: 18.0, adultUsd: 80, childUsd: 75, notes: "Autobús de lujo desayuno ligero bebidas y Valladolid" },
+      { id: "chichen-5x1-clasico", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "5x1 Clásico", nameEn: "5-in-1 Maya Classic Tour", baseCurrency: "USD", rate: 18.0, adultUsd: 114, childUsd: 57, notes: "Chichén Itzá + Tulum + Cobá + Cenote + Valladolid" },
+      { id: "chichen-5x1-diamante", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "5x1 Diamante", nameEn: "5-in-1 Diamond Experience", baseCurrency: "USD", rate: 18.0, adultUsd: 127, childUsd: 102, notes: "Versión ejecutiva 5 en 1 con transporte premier" },
+      { id: "chichen-hubiku", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Chichén – Hubiku", nameEn: "Chichen Itza & Hubiku Cenote", baseCurrency: "USD", rate: 18.0, adultUsd: 119, childUsd: 109, notes: "Ruinas mayas + nado en caverna subterránea Hubiku" },
+      { id: "chichen-suyrun", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Chichén Suyrun", nameEn: "Chichen Itza & Suytún Cave", baseCurrency: "USD", rate: 18.0, adultUsd: 119, childUsd: 109, notes: "Ruinas + cenote con haz de luz Suytún" },
+      { id: "ek-balam-hubiku", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Ek Balam y Cenote Hubiku", nameEn: "Ek Balam Ruins & Cenote Hubiku", baseCurrency: "USD", rate: 18.0, adultUsd: 124, childUsd: 119, notes: "Acrópolis con estucos + cenote Hubiku" },
+      { id: "noches-kukulcan", type: "Tour", category: "Cultural", combo: "CHICHÉN ITZÁ", nameEs: "Noches de Kukulcán", nameEn: "Kukulcan Light & Sound Nights", baseCurrency: "USD", rate: 18.0, adultUsd: 187, childUsd: 187, notes: "Espectáculo nocturno de luz y sonido en El Castillo" },
+      { id: "coz-cielo-lancha", type: "Tour", category: "Acuáticas", combo: "COZUMEL", nameEs: "Cozumel Cielo Lancha", nameEn: "Cozumel El Cielo Snorkel Boat", baseCurrency: "USD", rate: 18.0, adultUsd: 147, childUsd: 145, notes: "Estrellas de mar El Cielo y arrecifes Palancar/Colombia" },
+      { id: "coz-cielo-transp", type: "Tour", category: "Acuáticas", combo: "COZUMEL", nameEs: "Cozumel Cielo Lancha Transparente", nameEn: "Cozumel Clear Boat to El Cielo", baseCurrency: "USD", rate: 18.0, adultUsd: 130, childUsd: 123, notes: "Embarcación transparente hacia banco de estrellas" },
+      { id: "coz-buggy", type: "Tour", category: "Aventura", combo: "COZUMEL", nameEs: "Cozumel Buggy", nameEn: "Cozumel Island Buggy Adventure", baseCurrency: "USD", rate: 18.0, adultUsd: 155, childUsd: 143, notes: "Buggy convertible costa virgen y faro Celarain" },
+      { id: "coz-submarino", type: "Tour", category: "Acuáticas", combo: "COZUMEL", nameEs: "Cozumel Submarino", nameEn: "Atlantis Submarine Cozumel", baseCurrency: "USD", rate: 18.0, adultUsd: 234, childUsd: 123, notes: "Submarino turístico descenso 30 metros arrecife" },
+      { id: "coz-combo-cielo-clear", type: "Tour", category: "Acuáticas", combo: "COZUMEL", nameEs: "Cozumel Combo Cielo y Clear Boat", nameEn: "Cozumel Combo El Cielo & Clear Boat", baseCurrency: "USD", rate: 18.0, adultUsd: "pending", childUsd: "pending", notes: "Precio pendiente - consultar directamente" },
+      { id: "coz-economico", type: "Tour", category: "Cultural", combo: "COZUMEL", nameEs: "Cozumel Económico", nameEn: "Cozumel Island Budget Day Trip", baseCurrency: "USD", rate: 18.0, adultUsd: 185, childUsd: 177, notes: "Ferry redondo recorrido panorámico y club de playa" },
+      { id: "tulum-jaguar", type: "Tour", category: "Cultural", combo: "TULUM", nameEs: "Tulum Parque Jaguar", nameEn: "Tulum Jaguar National Park", baseCurrency: "USD", rate: 18.0, adultUsd: 87, childUsd: 83, notes: "Ruinas acantilado y Parque Nacional Jaguar" },
+      { id: "contoy-01", type: "Tour", category: "Naturaleza", combo: "Individual", nameEs: "Contoy", nameEn: "Contoy Island National Sanctuary", baseCurrency: "USD", rate: 18.0, adultUsd: 138, childUsd: 124, notes: "Isla protegida santuario de aves y comida en playa" },
+      { id: "holbox-plus", type: "Tour", category: "Naturaleza", combo: "HOLBOX", nameEs: "Holbox Plus + Cenote", nameEn: "Holbox Plus & Yalahau Cenote", baseCurrency: "USD", rate: 18.0, adultUsd: 115, childUsd: 108, notes: "Lancha Isla Pasión cenote Yalahau y Holbox" },
+      { id: "holbox-golf", type: "Tour", category: "Naturaleza", combo: "HOLBOX", nameEs: "Holbox Ferry Carrito de Golf", nameEn: "Holbox with Golf Cart Explorer", baseCurrency: "USD", rate: 18.0, adultUsd: 128, childUsd: 128, notes: "Cruce en ferry con carrito de golf incluido" },
+      { id: "holbox-econ", type: "Tour", category: "Naturaleza", combo: "HOLBOX", nameEs: "Holbox Económico", nameEn: "Holbox Budget Explorer", baseCurrency: "USD", rate: 18.0, adultUsd: 80, childUsd: 80, notes: "Transporte y ferry para explorar libremente" },
+      { id: "coloradas-rio", type: "Tour", category: "Naturaleza", combo: "Individual", nameEs: "Coloradas y Río Lagartos", nameEn: "Pink Lakes Las Coloradas & Flamingos", baseCurrency: "USD", rate: 18.0, adultUsd: 106, childUsd: 97, notes: "Lagunas rosas safari de flamencos y baño maya" },
+      { id: "bacalar-plus", type: "Tour", category: "Acuáticas", combo: "BACALAR", nameEs: "Bacalar Plus + Pontón", nameEn: "Bacalar Plus & Pontoon Cruise", baseCurrency: "USD", rate: 18.0, adultUsd: 108, childUsd: 102, notes: "Pontón por los 7 colores de la laguna y cenotes" },
+      { id: "bacalar-club", type: "Tour", category: "Acuáticas", combo: "BACALAR", nameEs: "Bacalar Club de Playa y Kayak", nameEn: "Bacalar Beach Club & Kayak", baseCurrency: "USD", rate: 18.0, adultUsd: 102, childUsd: 94, notes: "Pase club de laguna con kayaks abiertos y comida" },
+      { id: "bacalar-rapidos", type: "Tour", category: "Acuáticas", combo: "BACALAR", nameEs: "Bacalar Rápidos", nameEn: "Bacalar Rapids & Stromatolites", baseCurrency: "USD", rate: 18.0, adultUsd: 108, childUsd: 102, notes: "Corriente natural suave entre estromatolitos" },
+      { id: "bacalar-econ", type: "Tour", category: "Cultural", combo: "BACALAR", nameEs: "Bacalar Económico", nameEn: "Bacalar Day Trip Express", baseCurrency: "USD", rate: 18.0, adultUsd: 64, childUsd: 62, notes: "Transporte entrada Fuerte San Felipe y balneario" },
+      { id: "tortuga-naturaleza", type: "Tour", category: "Aventura", combo: "CASA TORTUGA", nameEs: "Casa Tortuga + Madre Naturaleza", nameEn: "Casa Tortuga & Mother Nature Sculpture", baseCurrency: "USD", rate: 18.0, adultUsd: 105, childUsd: 97, notes: "4 cenotes y foto escultura Ven a la Luz" },
+      { id: "tortuga-econ", type: "Tour", category: "Aventura", combo: "CASA TORTUGA", nameEs: "Casa Tortuga Económico", nameEn: "Casa Tortuga Basic Cenotes", baseCurrency: "USD", rate: 18.0, adultUsd: 70, childUsd: 61, notes: "Acceso a los 4 cenotes con chaleco y guía" },
+      { id: "tortuga-silver", type: "Tour", category: "Aventura", combo: "CASA TORTUGA", nameEs: "Casa Tortuga Silver", nameEn: "Casa Tortuga Silver All-In", baseCurrency: "USD", rate: 18.0, adultUsd: 108, childUsd: 102, notes: "Cenotes + tirolesas selváticas y comida buffet" },
+      { id: "tulum-akumal", type: "Tour", category: "Acuáticas", combo: "TULUM", nameEs: "Tulum Akumal Nado Tortuga", nameEn: "Tulum & Akumal Turtle Swim", baseCurrency: "USD", rate: 18.0, adultUsd: 118, childUsd: 115, notes: "Ruinas Tulum y nado guiado con tortugas Akumal" },
+      { id: "tulum-dos-ojos", type: "Tour", category: "Acuáticas", combo: "TULUM", nameEs: "Tulum Dos Ojos y Gran Cenote", nameEn: "Tulum & Sacred Cenotes Dos Ojos", baseCurrency: "USD", rate: 18.0, adultUsd: 143, childUsd: 100, notes: "Cenote Dos Ojos y Gran Cenote" },
+      { id: "sian-kaan", type: "Tour", category: "Naturaleza", combo: "Individual", nameEs: "Sian Ka'an Lancha y Van", nameEn: "Sian Ka'an Biosphere Safari", baseCurrency: "USD", rate: 18.0, adultUsd: 149, childUsd: 144, notes: "Reserva UNESCO delfines silvestres y canales mayas" },
+      { id: "cenotes-yucatan", type: "Tour", category: "Aventura", combo: "Individual", nameEs: "Tour de Cenotes Yucatán", nameEn: "Yucatan Sacred Cenote Trail", baseCurrency: "USD", rate: 18.0, adultUsd: 108, childUsd: 105, notes: "Cenotes en haciendas coloniales con comida típica" },
+      { id: "aventura-cenote", type: "Tour", category: "Aventura", combo: "Individual", nameEs: "Tour Aventura Cenote", nameEn: "Cenote Zipline & Rappel Adventure", baseCurrency: "USD", rate: 18.0, adultUsd: 95, childUsd: 88, notes: "Tirolesas sobre agua rappel y canotaje" }
+    ];
+
+    // 3. Flota de Yates (1, 4, 6, 8 horas)
+    const YACHTS_FLEET = [
+      { id: "yacht-lorenzo", name: "Lorenzo", model: "Sea Ray 42", pax: 15, length: 42, ratesMxn: { 1: 5800, 4: 18000, 6: 19000, 8: 21000 }, selectedDuration: 4, descEs: "Sea Ray Sundancer 42 pies con asoleadero en proa y audio marino profesional.", descEn: "42ft Sea Ray Sundancer with bow sunbed and professional marine sound.", img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80" },
+      { id: "yacht-sofia", name: "Sofia", model: "Wellcraft Portofino 43", pax: 15, length: 43, ratesMxn: { 1: 5800, 4: 17000, 6: 19000, 8: 21000 }, selectedDuration: 4, descEs: "Wellcraft Portofino 43 pies con plataforma de nado amplia y cabina climatizada.", descEn: "43ft Wellcraft Portofino featuring a wide swim platform and air-conditioned cabin.", img: "https://images.unsplash.com/photo-1540946485038-504a794c0ab9?auto=format&fit=crop&w=800&q=80" },
+      { id: "yacht-mercedes", name: "Mercedes", model: "Azimut Flybridge 46", pax: 15, length: 46, ratesMxn: { 1: 6000, 4: 19000, 6: 19000, 8: 25000 }, selectedDuration: 4, descEs: "Azimut 46 pies con segundo piso panorámico (Flybridge 360°) y tripulación privada.", descEn: "46ft Azimut with panoramic Flybridge 360° deck and dedicated crew service.", img: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=800&q=80" },
+      { id: "yacht-white-rum", name: "White Rum", model: "Formula Express 42", pax: 12, length: 42, ratesMxn: { 1: 5400, 4: null, 6: 17000, 8: 19000 }, selectedDuration: 6, descEs: "Formula Cruiser 42 pies de alta velocidad. Opción de 4 horas no disponible.", descEn: "42ft high-performance Formula cruiser. 4-hour charter duration is not available.", img: "https://images.unsplash.com/photo-1520255870062-bd79d3865de7?auto=format&fit=crop&w=800&q=80" },
+      { id: "yacht-regina", name: "Regina", model: "Sea Ray Sundancer 35", pax: 12, length: 35, ratesMxn: { 1: 4800, 4: 15000, 6: 17000, 8: 19000 }, selectedDuration: 4, descEs: "Sea Ray Sundancer 35 pies ágil y confortable, excelente para atardeceres en Laguna Nichupté.", descEn: "35ft Sea Ray Sundancer, ideal for serene sunset cruises across Nichupte Lagoon.", img: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=800&q=80" }
+    ];
+
+    let currentCurrency = 'USD';
+    let currentLang = 'es';
+    let currentPage = 'inicio';
+    let selectedCategory = 'Todas';
+    let searchQuery = '';
+    let cart = [];
+    let plannerShuffleSeed = 0;
     let yachtCarouselIndex = 0;
 
+    // 4. Navegación SPA
+    function navigate(pageId) {
+      currentPage = pageId;
+      window.location.hash = pageId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
+      const target = document.getElementById(`page-${pageId}`);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.remove('text-slate-600');
+          link.classList.add('text-auraTeal', 'font-bold');
+        } else {
+          link.classList.add('text-slate-600');
+          link.classList.remove('text-auraTeal', 'font-bold');
+        }
+      });
+
+      if (pageId === 'cotizador') runTripPlanner();
+    }
+
+    // 5. Control de Menú Móvil
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const backdrop = document.getElementById('mobileMenuBackdrop');
+      if (!menu) return;
+
+      const isClosed = menu.classList.contains('translate-x-full');
+      if (isClosed) {
+        menu.classList.remove('translate-x-full');
+        if (backdrop) backdrop.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      } else {
+        menu.classList.add('translate-x-full');
+        if (backdrop) backdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    // 6. Moneda & Precios
+    function toggleCurrency() {
+      currentCurrency = currentCurrency === 'USD' ? 'MXN' : 'USD';
+      document.getElementById('currencyToggleBtn').innerText = currentCurrency === 'USD' ? 'USD ($)' : 'MXN ($)';
+      updateBudgetSliderDisplay();
+      renderHomeFeatured();
+      renderCatalog();
+      renderYachts();
+      renderCartItems();
+      runTripPlanner();
+    }
+
+    function getDisplayPrice(valUsd, exchangeRate, isYachtRate = false) {
+      if (valUsd === 'free') return currentLang === 'es' ? 'Gratis' : 'Free';
+      if (valUsd === 'not_applicable') return currentLang === 'es' ? 'No aplica' : 'N/A';
+      if (valUsd === 'pending' || valUsd === null) return currentLang === 'es' ? 'Consultar precio' : 'Check price';
+
+      if (isYachtRate) {
+        if (currentCurrency === 'MXN') return `$${valUsd.toLocaleString('es-MX')} MXN`;
+        return `$${Math.round(valUsd / 18.0).toLocaleString('en-US')} USD`;
+      }
+
+      if (currentCurrency === 'USD') return `$${valUsd} USD`;
+      return `$${Math.round(valUsd * (exchangeRate || 18.0)).toLocaleString('es-MX')} MXN`;
+    }
+
+    function getDriveImageUrl(driveId) {
+      if (!driveId) return 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80';
+      return `https://lh3.googleusercontent.com/d/${driveId}=w800`;
+    }
+
+    function handleImgError(imgEl, driveId) {
+      if (driveId && !imgEl.dataset.retried) {
+        imgEl.dataset.retried = "true";
+        imgEl.src = `https://drive.google.com/thumbnail?id=${driveId}&sz=w800`;
+      } else {
+        imgEl.src = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80';
+      }
+    }
+
+    // 7. Idioma
+    function toggleLanguage() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.getElementById('langToggleBtn').innerText = currentLang === 'es' ? 'ES | EN' : 'EN | ES';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (I18N[currentLang][key]) {
+          el.innerHTML = I18N[currentLang][key];
+        }
+      });
+
+      renderHomeFeatured();
+      renderCatalog();
+      renderYachts();
+      runTripPlanner();
+      renderCartItems();
+      calculateCartNights();
+    }
+
+    // 8. Carrusel de Yates
     function prevYachtSlide() {
       yachtCarouselIndex = Math.max(0, yachtCarouselIndex - 1);
       updateYachtCarousel();
@@ -854,7 +1248,14 @@
       track.style.transform = `translateX(-${yachtCarouselIndex * stepPercent}%)`;
     }
 
-    // Render de Yates adaptado: En Home como Carrusel y en la página dedicada como Grid completo
+    function setYachtDuration(yachtId, duration) {
+      const yacht = YACHTS_FLEET.find(y => y.id === yachtId);
+      if (!yacht) return;
+      if (yacht.ratesMxn[duration] === null) return;
+      yacht.selectedDuration = duration;
+      renderYachts();
+    }
+
     function renderYachts() {
       const track = document.getElementById('yachtsGridTrack');
       const fullGrid = document.getElementById('yachtsFullGrid');
@@ -864,18 +1265,18 @@
         const currentRate = y.ratesMxn[currentDur];
 
         return `
-          <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border-2 border-slate-200 p-6 flex flex-col justify-between hover:border-auraNavy transition-all h-full">
+          <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border-2 border-slate-200 p-4 sm:p-6 flex flex-col justify-between hover:border-auraNavy transition-all h-full">
             <div>
               <div onclick="openItemDetailModal('${y.id}', 'Yate')" class="cursor-pointer">
-                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 block mb-2">${y.model}</span>
-                <div class="h-44 w-full rounded-xl overflow-hidden mb-4 bg-slate-100">
+                <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-500 block mb-1 sm:mb-2">${y.model}</span>
+                <div class="h-40 sm:h-44 w-full rounded-xl overflow-hidden mb-3 sm:mb-4 bg-slate-100">
                   <img src="${y.img}" alt="${y.name}" class="w-full h-full object-cover hover:scale-105 transition-transform" />
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-slate-900 mb-1">${y.name}</h3>
-                <p class="text-xs text-slate-500 mb-4 line-clamp-2">${currentLang === 'es' ? y.descEs : y.descEn}</p>
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-1">${y.name}</h3>
+                <p class="text-xs text-slate-500 mb-3 sm:mb-4 line-clamp-2">${currentLang === 'es' ? y.descEs : y.descEn}</p>
               </div>
 
-              <div class="mb-4">
+              <div class="mb-3 sm:mb-4">
                 <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1.5">
                   ${currentLang === 'es' ? 'Seleccionar Horas:' : 'Select Duration:'}
                 </span>
@@ -885,7 +1286,7 @@
                     const isActive = currentDur === h && isAvail;
                     return `
                       <button 
-                        onclick="setYachtDuration('${y.id}',${h})" 
+                        onclick="setYachtDuration('${y.id}', ${h})" 
                         ${!isAvail ? 'disabled' : ''}
                         class="py-1.5 rounded-lg text-xs font-bold transition-all ${
                           !isAvail ? 'bg-slate-100 text-slate-300 cursor-not-allowed line-through' :
@@ -899,18 +1300,18 @@
                 </div>
               </div>
 
-              <div class="space-y-1.5 text-xs text-slate-600 mb-4 pt-3 border-t border-slate-100">
+              <div class="space-y-1 text-xs text-slate-600 mb-3 sm:mb-4 pt-2.5 sm:pt-3 border-t border-slate-100">
                 <div class="flex justify-between"><span>${currentLang === 'es' ? 'Eslora:' : 'Length:'}</span> <strong>${y.length} ${currentLang === 'es' ? 'Pies' : 'Feet'}</strong></div>
                 <div class="flex justify-between"><span>${currentLang === 'es' ? 'Capacidad:' : 'Capacity:'}</span> <strong>${currentLang === 'es' ? 'Hasta' : 'Up to'} ${y.pax} PAX</strong></div>
               </div>
             </div>
 
             <div class="pt-3 border-t border-slate-100">
-              <div class="flex items-baseline justify-between mb-4">
+              <div class="flex items-baseline justify-between mb-3 sm:mb-4">
                 <span class="text-xs text-slate-400 font-medium">${currentDur} ${currentLang === 'es' ? 'Horas' : 'Hours'}</span>
-                <span class="font-serif text-2xl font-bold text-auraNavy">${getDisplayPrice(currentRate, 18.0, true)}</span>
+                <span class="font-serif text-xl sm:text-2xl font-bold text-auraNavy">${getDisplayPrice(currentRate, 18.0, true)}</span>
               </div>
-              <button onclick="addToCart('${y.id}', 'Yate', null, null, ${currentDur})" class="w-full py-3.5 rounded-xl bg-auraNavy text-white hover:bg-auraNavyLight font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
+              <button onclick="addToCart('${y.id}', 'Yate', null, null, ${currentDur})" class="w-full py-3 sm:py-3.5 rounded-xl bg-auraNavy text-white hover:bg-auraNavyLight font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
                 ${currentLang === 'es' ? '+ Añadir Yate al Carrito' : '+ Add Yacht to Cart'}
               </button>
             </div>
@@ -920,7 +1321,7 @@
 
       if (track) {
         track.innerHTML = YACHTS_FLEET.map(y => `
-          <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] p-3 flex-shrink-0">
+          <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] p-2 sm:p-3 flex-shrink-0">
             ${generateCardHtml(y)}
           </div>
         `).join('');
@@ -932,50 +1333,427 @@
       }
     }
 
-    // Catálogo Completo (48 actividades)
+    // 9. Experiencias Destacadas Home
+    function renderHomeFeatured() {
+      const container = document.getElementById('homeFeaturedCards');
+      if (!container) return;
+
+      const featured = [
+        { id: "cat-01", titleEs: "Playa Norte & Catamarán", titleEn: "Playa Norte & Catamaran", tagEs: "MÁS POPULAR", tagEn: "MOST POPULAR", durEs: "7 Horas", durEn: "7 Hours", price: 75, rate: 18.0, descEs: "Navegación en catamarán de lujo, snorkel en arrecife El Meco y club de playa.", descEn: "Luxury catamaran cruise, El Meco reef snorkeling, open bar and beach club.", img: "https://lh3.googleusercontent.com/d/1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL=w800", driveId: "1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL" },
+        { id: "jungle-01", titleEs: "Jungle Tour Manglares", titleEn: "Jungle Tour Speedboat", tagEs: "ADRENALINA", tagEn: "ADRENALINE", durEs: "2.5 Horas", durEn: "2.5 Hours", price: 50, rate: 18.0, descEs: "Lancha rápida biplaza por los manglares de Nichupté y snorkel en Punta Nizuc.", descEn: "Two-seater speedboat across Nichupte mangrove canals and Nizuc reef snorkeling.", img: "https://lh3.googleusercontent.com/d/1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U=w800", driveId: "1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U" },
+        { id: "coz-cielo-lancha", titleEs: "Cozumel El Cielo & Estrellas", titleEn: "Cozumel El Cielo Sandbar", tagEs: "NATURALEZA", tagEn: "NATURE", durEs: "Día Completo", durEn: "Full Day", price: 147, rate: 18.0, descEs: "Santuario de estrellas de mar y arrecifes Palancar y Colombia.", descEn: "Pristine starfish sandbar sanctuary and vibrant Palancar and Colombia reefs.", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", driveId: null },
+        { id: "chichen-vip", titleEs: "Chichén Itzá VIP Deluxe", titleEn: "Chichen Itza VIP Deluxe", tagEs: "CULTURAL VIP", tagEn: "VIP CULTURAL", durEs: "Día Completo", durEn: "Full Day", price: 80, rate: 18.0, descEs: "Autobús premier con desayuno, ruinas mayas, cenote sagrado y Valladolid.", descEn: "Premier bus with breakfast on board, Maya ruins, sacred cenote and colonial town.", img: "https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80", driveId: null }
+      ];
+
+      container.innerHTML = featured.map(item => `
+        <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border border-slate-200/80 flex flex-col justify-between group hover:-translate-y-1 transition-transform duration-300">
+          <div onclick="openItemDetailModal('${item.id}', 'Tour')" class="cursor-pointer">
+            <div class="h-44 w-full overflow-hidden relative bg-slate-100">
+              <img src="${item.img}" alt="${currentLang === 'es' ? item.titleEs : item.titleEn}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImgError(this, '${item.driveId || ''}')" />
+              <span class="absolute top-3 left-3 bg-auraNavy text-white px-3 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow">
+                ${currentLang === 'es' ? item.tagEs : item.tagEn}
+              </span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-slate-900 mb-1 group-hover:text-auraTeal transition-colors">
+                ${currentLang === 'es' ? item.titleEs : item.titleEn}
+              </h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-3 line-clamp-2">
+                ${currentLang === 'es' ? item.descEs : item.descEn}
+              </p>
+              <div class="text-[11px] text-slate-600 pt-2 border-t border-slate-100 flex justify-between">
+                <span>${currentLang === 'es' ? 'Duración:' : 'Duration:'}</span> <strong class="text-slate-800">${currentLang === 'es' ? item.durEs : item.durEn}</strong>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[10px] text-slate-400 uppercase font-bold">${currentLang === 'es' ? 'Desde' : 'From'}</span>
+              <span class="font-serif text-xl font-bold text-auraNavy">${getDisplayPrice(item.price, item.rate)}</span>
+            </div>
+            <button onclick="addToCart('${item.id}', 'Tour')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-auraNavy hover:text-white text-slate-800 font-bold text-xs uppercase tracking-wider transition-colors">
+              ${currentLang === 'es' ? '+ Añadir al Carrito' : '+ Add to Cart'}
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // 10. Modal de Detalles
+    function openItemDetailModal(itemId, itemType) {
+      const modal = document.getElementById('detailModalBackdrop');
+      const content = document.getElementById('detailModalContent');
+      if (!modal || !content) return;
+
+      if (itemType === 'Yate') {
+        const yacht = YACHTS_FLEET.find(y => y.id === itemId);
+        if (!yacht) return;
+        const curDur = yacht.selectedDuration || 4;
+
+        content.innerHTML = `
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-auraTeal block mb-1">
+              ${currentLang === 'es' ? 'Charter Privado' : 'Private Charter'} · ${yacht.length} ${currentLang === 'es' ? 'Pies' : 'Feet'}
+            </span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">${yacht.name} (${yacht.model})</h2>
+            <div class="h-48 sm:h-64 w-full rounded-xl overflow-hidden mb-5 bg-slate-100">
+              <img src="${yacht.img}" alt="${yacht.name}" class="w-full h-full object-cover" />
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">${currentLang === 'es' ? yacht.descEs : yacht.descEn}</p>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-5 space-y-2 text-xs">
+              <div class="flex justify-between"><span>${currentLang === 'es' ? 'Capacidad Máxima:' : 'Max Capacity:'}</span> <strong class="text-slate-800">${yacht.pax} ${currentLang === 'es' ? 'Pasajeros' : 'Guests'}</strong></div>
+              <div class="flex justify-between"><span>${currentLang === 'es' ? 'Punto de Partida:' : 'Departure Point:'}</span> <strong class="text-slate-800">Plaza La Isla 1 Marina</strong></div>
+              <div class="flex justify-between"><span>${currentLang === 'es' ? 'Incluye:' : 'Includes:'}</span> <strong class="text-slate-800">${currentLang === 'es' ? 'Capitán, Marinero, Combustible, Hielo, Snorkel' : 'Captain, Crew, Fuel, Ice, Snorkel Gear'}</strong></div>
+            </div>
+
+            <div class="mb-5">
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-2">${currentLang === 'es' ? 'Selecciona la Duración:' : 'Select Duration:'}</label>
+              <div class="grid grid-cols-4 gap-2 text-xs">
+                ${[1, 4, 6, 8].map(h => {
+                  const avail = yacht.ratesMxn[h] !== null;
+                  const active = curDur === h && avail;
+                  return `
+                    <button onclick="setYachtDuration('${yacht.id}', ${h}); openItemDetailModal('${yacht.id}', 'Yate')" ${!avail ? 'disabled' : ''} class="p-2 sm:p-2.5 rounded-lg font-bold ${!avail ? 'bg-slate-100 text-slate-300 line-through cursor-not-allowed' : active ? 'bg-auraNavy text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">
+                      ${h} ${currentLang === 'es' ? 'Horas' : 'Hours'}
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div>
+                <span class="text-[11px] text-slate-400 block">${currentLang === 'es' ? 'Tarifa por' : 'Rate for'} ${curDur} ${currentLang === 'es' ? 'Horas' : 'Hours'}</span>
+                <span class="font-serif text-xl sm:text-2xl font-bold text-auraNavy">${getDisplayPrice(yacht.ratesMxn[curDur], 18.0, true)}</span>
+              </div>
+              <button onclick="addToCart('${yacht.id}', 'Yate', null, null, ${curDur}); closeItemDetailModal();" class="btn-aura-gold px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs uppercase tracking-wider">
+                ${currentLang === 'es' ? 'Añadir al Carrito' : 'Add to Cart'}
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        const item = CATALOG.find(t => t.id === itemId);
+        if (!item) return;
+
+        content.innerHTML = `
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-auraTeal block mb-1">${item.category} · ${item.type}</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">${currentLang === 'es' ? item.nameEs : (item.nameEn || item.nameEs)}</h2>
+            
+            <div class="h-48 sm:h-64 w-full rounded-xl overflow-hidden mb-5 bg-slate-100">
+              <img src="${getDriveImageUrl(item.driveId)}" alt="${item.nameEs}" class="w-full h-full object-cover" onerror="handleImgError(this, '${item.driveId || ''}')" />
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-5 text-xs text-slate-600 space-y-2">
+              <p><strong>${currentLang === 'es' ? 'Detalles & Notas:' : 'Details & Notes:'}</strong> ${item.notes}</p>
+              <div class="flex justify-between pt-2 border-t border-slate-200">
+                <span>${currentLang === 'es' ? 'Modalidad:' : 'Type:'}</span> <strong class="text-slate-800">${item.combo !== 'Individual' ? item.combo : (currentLang === 'es' ? 'Actividad Individual' : 'Single Activity')}</strong>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-5 text-xs">
+              <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                <span class="text-slate-400 uppercase font-bold block mb-1">${currentLang === 'es' ? 'Precio Adulto' : 'Adult Price'}</span>
+                <span class="font-serif text-lg sm:text-xl font-bold text-auraNavy">${getDisplayPrice(item.adultUsd, item.rate)}</span>
+              </div>
+              <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                <span class="text-slate-400 uppercase font-bold block mb-1">${currentLang === 'es' ? 'Precio Niño' : 'Child Price'}</span>
+                <span class="font-serif text-lg sm:text-xl font-bold text-auraNavy">${getDisplayPrice(item.childUsd, item.rate)}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+              <button onclick="closeItemDetailModal()" class="text-xs text-slate-500 hover:text-slate-800 font-semibold uppercase">${currentLang === 'es' ? 'Cerrar' : 'Close'}</button>
+              <button onclick="addToCart('${item.id}', 'Tour'); closeItemDetailModal();" class="btn-aura-gold px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs uppercase tracking-wider">
+                ${currentLang === 'es' ? 'Añadir al Carrito' : 'Add to Cart'}
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeItemDetailModal() {
+      const modal = document.getElementById('detailModalBackdrop');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'detailModalBackdrop') {
+        closeItemDetailModal();
+      }
+    }
+
+    // 11. Carrito y Estadía de Noches
+    function calculateCartNights() {
+      const sVal = document.getElementById('cartStartDate').value;
+      const eVal = document.getElementById('cartEndDate').value;
+      const display = document.getElementById('cartNightsDisplay');
+      if (!display) return;
+
+      if (!sVal || !eVal) {
+        display.innerText = currentLang === 'es' ? 'Estadía: Selecciona fechas' : 'Stay: Select dates';
+        return;
+      }
+
+      const start = new Date(sVal);
+      const end = new Date(eVal);
+
+      if (end <= start) {
+        display.innerText = currentLang === 'es' ? 'La fecha de fin debe ser posterior a la de inicio' : 'End date must be after start date';
+        return;
+      }
+
+      const diffTime = Math.abs(end - start);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      if (currentLang === 'es') {
+        display.innerText = `Estadía: ${diffDays} noche${diffDays === 1 ? '' : 's'} (${diffDays + 1} días)`;
+      } else {
+        display.innerText = `Stay: ${diffDays} night${diffDays === 1 ? '' : 's'} (${diffDays + 1} days)`;
+      }
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+      const isClosed = drawer.classList.contains('translate-x-full');
+      if (isClosed) { 
+        drawer.classList.remove('translate-x-full'); 
+        backdrop.classList.remove('hidden'); 
+      } else { 
+        drawer.classList.add('translate-x-full'); 
+        backdrop.classList.add('hidden'); 
+      }
+    }
+
+    function addToCart(itemId, itemType = 'Tour', customTitle = null, customPriceUsd = null, durationHours = 4) {
+      if (customTitle) {
+        cart.push({ cartId: 'c-' + Date.now(), title: customTitle, type: itemType, priceUsd: customPriceUsd || 150, adults: 2 });
+      } else if (itemType === 'Yate') {
+        const yacht = YACHTS_FLEET.find(y => y.id === itemId);
+        if (!yacht) return;
+        const rate = yacht.ratesMxn[durationHours] || 18000;
+        cart.push({ cartId: 'c-' + Date.now(), id: yacht.id, title: `Yate ${yacht.name} (${yacht.model})`, type: 'Yate', duration: durationHours, rateMxn: rate });
+      } else {
+        const tour = CATALOG.find(t => t.id === itemId);
+        if (!tour) return;
+        cart.push({ cartId: 'c-' + Date.now(), id: tour.id, title: currentLang === 'es' ? tour.nameEs : (tour.nameEn || tour.nameEs), type: 'Tour', priceUsd: tour.adultUsd, rate: tour.rate, adults: 2 });
+      }
+      saveCart();
+      renderCartItems();
+      toggleCartDrawer();
+    }
+
+    function removeFromCart(cartId) { 
+      cart = cart.filter(it => it.cartId !== cartId); 
+      saveCart(); 
+      renderCartItems(); 
+    }
+
+    function renderCartItems() {
+      const container = document.getElementById('cartItemsContainer');
+      const countBadge = document.getElementById('cartCountBadge');
+      const totalDisplay = document.getElementById('cartTotalDisplay');
+      if (!container || !countBadge || !totalDisplay) return;
+
+      countBadge.innerText = cart.length;
+
+      if (cart.length === 0) {
+        container.innerHTML = `<div class="text-center py-10 text-slate-400"><p class="font-bold text-slate-700">${currentLang === 'es' ? 'Tu carrito está vacío' : 'Your cart is empty'}</p></div>`;
+        totalDisplay.innerText = currentCurrency === 'USD' ? '$0 USD' : '$0 MXN';
+        return;
+      }
+
+      let totalUsd = 0;
+      let totalMxn = 0;
+      container.innerHTML = cart.map(item => {
+        let priceStr = '';
+        if (item.type === 'Yate') {
+          totalMxn += item.rateMxn;
+          totalUsd += Math.round(item.rateMxn / 18.0);
+          priceStr = getDisplayPrice(item.rateMxn, 18.0, true);
+        } else {
+          const c = (item.priceUsd || 75) * (item.adults || 2);
+          totalUsd += c;
+          totalMxn += Math.round(c * (item.rate || 18.0));
+          priceStr = getDisplayPrice(c, item.rate || 18.0, false);
+        }
+        return `
+          <div class="bg-slate-50 p-3 sm:p-3.5 rounded-xl border border-slate-200 flex justify-between items-center">
+            <div>
+              <span class="text-[9px] text-auraTeal font-bold uppercase">${item.type}</span>
+              <h4 class="font-serif text-xs sm:text-sm font-bold text-slate-900">${item.title}</h4>
+              <span class="text-xs font-bold text-auraNavy">${priceStr}</span>
+            </div>
+            <button onclick="removeFromCart('${item.cartId}')" class="text-slate-400 hover:text-red-500 font-bold p-1">✕</button>
+          </div>
+        `;
+      }).join('');
+      totalDisplay.innerText = currentCurrency === 'USD' ? `$${totalUsd.toLocaleString('en-US')} USD` : `$${totalMxn.toLocaleString('es-MX')} MXN`;
+    }
+
+    function saveCart() { localStorage.setItem('clm_cart', JSON.stringify(cart)); }
+    function loadCartFromStorage() { 
+      try { 
+        const s = localStorage.getItem('clm_cart'); 
+        if (s) { cart = JSON.parse(s); renderCartItems(); } 
+      } catch(e){} 
+    }
+
+    function submitCartToWhatsApp() {
+      if (cart.length === 0) return;
+      const name = document.getElementById('cartCustomerName').value.trim() || 'Huésped';
+      const sDate = document.getElementById('cartStartDate').value || 'Por definir';
+      const eDate = document.getElementById('cartEndDate').value || 'Por definir';
+      const nightsText = document.getElementById('cartNightsDisplay').innerText;
+      const total = document.getElementById('cartTotalDisplay').innerText;
+      const itemsList = cart.map((it, i) => `${i + 1}. ${it.title}${it.type === 'Yate' ? ` (${it.duration} Horas)` : ''}`).join('\n');
+      
+      const msg = `¡Hola, Cancun Lighthouse Marina! ⚓\nCotización formal de carrito de experiencias:\n• Titular: ${name}\n• Rango de Vacaciones: Del ${sDate} al ${eDate}\n• ${nightsText}\n\nACTIVIDADES:\n${itemsList}\n\nTOTAL ESTIMADO: ${total}`;
+      window.open(`https://wa.me/529982274928?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // 12. Cotizador Inteligente
+    function handleBudgetSliderInput() { 
+      updateBudgetSliderDisplay(); 
+      runTripPlanner(false); 
+    }
+
+    function updateBudgetSliderDisplay() {
+      const slider = document.getElementById('budgetSlider');
+      if (!slider) return;
+      const val = parseFloat(slider.value);
+      const display = document.getElementById('budgetDisplayVal');
+      if (display) display.innerText = currentCurrency === 'USD' ? `$${val.toLocaleString('en-US')} USD` : `$${val.toLocaleString('es-MX')} MXN`;
+    }
+
+    function shuffleTripOptions() { 
+      plannerShuffleSeed++; 
+      runTripPlanner(true); 
+    }
+
+    function runTripPlanner(isUserClick = false) {
+      const grid = document.getElementById('plannerResultsGrid');
+      if (!grid) return;
+      const adults = parseInt(document.getElementById('calcAdults').value) || 2;
+      const children = parseInt(document.getElementById('calcChildren').value) || 0;
+      const days = parseInt(document.getElementById('calcDays').value) || 3;
+      const sliderVal = parseFloat(document.getElementById('budgetSlider').value) || 1200;
+      const budgetInUsd = currentCurrency === 'USD' ? sliderVal : Math.round(sliderVal / 18.0);
+
+      const packageBlueprints = [
+        { id: "pkg-marino", nameEs: "Caribe Clásico & Arrecifes", nameEn: "Classic Reefs & Waves", focusEs: "Snorkel, Catamarán e Isla Mujeres", focusEn: "Catamaran, Snorkel & Isla Mujeres", itemsEs: ["Catamarán a Isla Mujeres", "Jungle Tour Speedboat", "Clear Boat Cancún"], itemsEn: ["Isla Mujeres Catamaran", "Jungle Tour Speedboat", "100% Clear Boat"], baseCostPerAdult: 165 },
+        { id: "pkg-aventura", nameEs: "Selva Maya & Adrenalina", nameEn: "Maya Jungle & Adrenaline", focusEs: "Cenotes, Tirolesas y Parques", focusEn: "Cenotes, Ziplines & Theme Parks", itemsEs: ["Xcaret Plus Todo Incluido", "Jungle Tour Combo Jetsky", "Casa Tortuga Cenotes"], itemsEn: ["Xcaret Plus All-Inclusive", "Jetski Speed Combo", "Sacred Cenotes Trail"], baseCostPerAdult: 342 },
+        { id: "pkg-cultural", nameEs: "Herencia Maya & Maravillas", nameEn: "Maya Heritage & Wonders", focusEs: "Chichén Itzá, Cenotes y Tulum", focusEn: "Chichen Itza, Cenotes & Tulum", itemsEs: ["Chichén VIP Deluxe", "Tulum & Nado Tortugas", "Tour de Cenotes Yucatán"], itemsEn: ["Chichen Itza VIP Deluxe", "Tulum & Turtle Swim", "Sacred Cenote Trail"], baseCostPerAdult: 275 },
+        { id: "pkg-vip-yacht", nameEs: "Altamar VIP & Exclusividad", nameEn: "VIP Yacht & Sunset Cruise", focusEs: "Charter en Yate y Atardecer", focusEn: "Private Yacht & Sunset Cruise", itemsEs: ["Yate Privado Sea Ray (4 Horas)", "Catamarán a Isla Mujeres"], itemsEn: ["Private Sea Ray Yacht (4h)", "Isla Mujeres Luxury Catamaran"], baseCostPerAdult: 550 },
+        { id: "pkg-parques", nameEs: "Mundo Parques Xcaret", nameEn: "Xcaret Parks Universe", focusEs: "Ríos subterráneos y Caletas", focusEn: "Underground Rivers & Natural Inlet", itemsEs: ["Xcaret Plus Todo Incluido", "Xel-Há Caleta Natural"], itemsEn: ["Xcaret Plus All-Inclusive", "Xel-Ha Natural Waterpark"], baseCostPerAdult: 388 }
+      ];
+
+      const shifted = [...packageBlueprints.slice(plannerShuffleSeed % packageBlueprints.length), ...packageBlueprints.slice(0, plannerShuffleSeed % packageBlueprints.length)];
+      
+      grid.innerHTML = shifted.slice(0, 3).map((pkg, idx) => {
+        const estTotalUsd = Math.round(pkg.baseCostPerAdult * adults + (pkg.baseCostPerAdult * 0.75 * children));
+        const diffUsd = budgetInUsd - estTotalUsd;
+        const fitsInBudget = diffUsd >= 0;
+        const items = currentLang === 'es' ? pkg.itemsEs : pkg.itemsEn;
+
+        return `
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-aura-card border-2 ${fitsInBudget ? 'border-auraGold' : 'border-slate-200'} flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded bg-slate-100 text-auraNavy">
+                  ${currentLang === 'es' ? `Opción 0${idx + 1} ·${days} Días` : `Option 0${idx + 1} ·${days} Days`}
+                </span>
+                <span class="text-[11px] font-bold ${fitsInBudget ? 'text-teal-600' : 'text-slate-500'}">
+                  ${fitsInBudget ? (currentLang === 'es' ? '✓ En Presupuesto' : '✓ In Budget') : (currentLang === 'es' ? '✦ Opción VIP' : '✦ VIP Choice')}
+                </span>
+              </div>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-1">${currentLang === 'es' ? pkg.nameEs : pkg.nameEn}</h3>
+              <p class="text-xs text-slate-500 mb-4">${currentLang === 'es' ? pkg.focusEs : pkg.focusEn}</p>
+              <div class="space-y-1.5 mb-5">
+                ${items.slice(0, Math.min(days, items.length)).map(act => `
+                  <div class="p-2 sm:p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center gap-2 text-xs text-slate-800">
+                    <span class="text-auraGold font-bold">›</span><span>${act}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+            <div class="pt-3.5 border-t border-slate-100">
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="font-serif text-xl sm:text-2xl font-bold text-auraNavy">${getDisplayPrice(estTotalUsd, 18.0, false)}</span>
+                <span class="text-xs ${fitsInBudget ? 'text-teal-600 font-bold' : 'text-slate-400'}">
+                  ${fitsInBudget ? (currentLang === 'es' ? `Sobra: ${getDisplayPrice(diffUsd, 18.0, false)}` : `Left: ${getDisplayPrice(diffUsd, 18.0, false)}`) : (currentLang === 'es' ? 'Ajustar' : 'Adjust')}
+                </span>
+              </div>
+              <button onclick="addToCart(null, 'Paquete', '${currentLang === 'es' ? pkg.nameEs : pkg.nameEn}', ${estTotalUsd})" class="w-full btn-aura-gold py-2.5 sm:py-3 rounded-xl font-bold text-xs tracking-wider uppercase shadow-aura-gold">
+                ${currentLang === 'es' ? 'Añadir Paquete' : 'Add Package'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 13. Catálogo Filtros y Render
     function initCategoryFilters() {
       const container = document.getElementById('categoryFilterContainer');
+      if (!container) return;
       const cats = currentLang === 'es' 
         ? ['Todas', 'Acuáticas', 'Parques', 'Cultural', 'Aventura', 'Naturaleza']
         : ['All', 'Water Tours', 'Parks', 'Cultural', 'Adventure', 'Nature'];
 
       container.innerHTML = cats.map((cat, i) => `
-        <button onclick="setCategory('${i === 0 ? 'Todas' : (currentLang === 'es' ? cat : ['Todas', 'Acuáticas', 'Parques', 'Cultural', 'Aventura', 'Naturaleza'][i])}')" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${selectedCategory === (i === 0 ? 'Todas' : ['Todas', 'Acuáticas', 'Parques', 'Cultural', 'Aventura', 'Naturaleza'][i]) ? 'bg-auraNavy text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">${cat}</button>
+        <button onclick="setCategory('${i === 0 ? 'Todas' : (currentLang === 'es' ? cat : ['Todas', 'Acuáticas', 'Parques', 'Cultural', 'Aventura', 'Naturaleza'][i])}')" class="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider ${selectedCategory === (i === 0 ? 'Todas' : ['Todas', 'Acuáticas', 'Parques', 'Cultural', 'Aventura', 'Naturaleza'][i]) ? 'bg-auraNavy text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">${cat}</button>
       `).join('');
     }
 
-    function setCategory(cat) { selectedCategory = cat; initCategoryFilters(); renderCatalog(); }
-    function handleSearch() { searchQuery = document.getElementById('searchInput').value.toLowerCase().trim(); renderCatalog(); }
-    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+    function setCategory(cat) { 
+      selectedCategory = cat; 
+      initCategoryFilters(); 
+      renderCatalog(); 
+    }
+
+    function handleSearch() { 
+      searchQuery = document.getElementById('searchInput').value.toLowerCase().trim(); 
+      renderCatalog(); 
+    }
 
     function renderCatalog() {
       const grid = document.getElementById('catalogGrid');
+      if (!grid) return;
       grid.innerHTML = CATALOG.filter(it => (selectedCategory === 'Todas' || it.category === selectedCategory) && (it.nameEs.toLowerCase().includes(searchQuery) || (it.nameEn && it.nameEn.toLowerCase().includes(searchQuery)))).map(first => `
         <article class="bg-white rounded-2xl overflow-hidden shadow-aura-card border border-slate-200 flex flex-col justify-between">
           <div onclick="openItemDetailModal('${first.id}', 'Tour')" class="cursor-pointer">
-            <div class="h-48 w-full bg-slate-100 overflow-hidden">
+            <div class="h-40 sm:h-48 w-full bg-slate-100 overflow-hidden">
               <img src="${getDriveImageUrl(first.driveId)}" alt="${first.nameEs}" class="w-full h-full object-cover hover:scale-105 transition-transform" onerror="handleImgError(this, '${first.driveId || ''}')" />
             </div>
-            <div class="p-6">
-              <span class="text-[9px] uppercase font-bold text-auraTeal tracking-widest block mb-1">${first.category}</span>
-              <h3 class="font-serif text-xl font-bold text-slate-900 mb-1">${currentLang === 'es' ? first.nameEs : (first.nameEn || first.nameEs)}</h3>
-              <p class="text-xs text-slate-500 mb-4 line-clamp-2">${first.notes}</p>
+            <div class="p-4 sm:p-6">
+              <span class="text-[9px] uppercase font-bold text-auraTeal tracking-widest block mb-0.5 sm:mb-1">${first.category}</span>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-1">${currentLang === 'es' ? first.nameEs : (first.nameEn || first.nameEs)}</h3>
+              <p class="text-xs text-slate-500 mb-3 sm:mb-4 line-clamp-2">${first.notes}</p>
             </div>
           </div>
-          <div class="p-6 pt-0">
-            <div class="flex justify-between items-center pt-3 border-t border-slate-100 mb-3">
-              <span class="font-serif text-xl font-bold text-auraNavy">${getDisplayPrice(first.adultUsd, first.rate)}</span>
-              <span class="text-[11px] text-slate-400">${currentLang === 'es' ? 'Niño:' : 'Child:'} ${getDisplayPrice(first.childUsd, first.rate)}</span>
+          <div class="p-4 sm:p-6 pt-0">
+            <div class="flex justify-between items-center pt-2.5 sm:pt-3 border-t border-slate-100 mb-3">
+              <span class="font-serif text-lg sm:text-xl font-bold text-auraNavy">${getDisplayPrice(first.adultUsd, first.rate)}</span>
+              <span class="text-[10px] sm:text-[11px] text-slate-400">${currentLang === 'es' ? 'Niño:' : 'Child:'} ${getDisplayPrice(first.childUsd, first.rate)}</span>
             </div>
             <div class="grid grid-cols-2 gap-2">
-              <button onclick="openItemDetailModal('${first.id}', 'Tour')" class="py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:border-auraNavy">${currentLang === 'es' ? 'Detalles' : 'Details'}</button>
-              <button onclick="addToCart('${first.id}', 'Tour')" class="btn-aura-gold py-2.5 rounded-xl text-xs font-bold uppercase shadow-aura-gold">${currentLang === 'es' ? '+ Carrito' : '+ Cart'}</button>
+              <button onclick="openItemDetailModal('${first.id}', 'Tour')" class="py-2 sm:py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:border-auraNavy">${currentLang === 'es' ? 'Detalles' : 'Details'}</button>
+              <button onclick="addToCart('${first.id}', 'Tour')" class="btn-aura-gold py-2 sm:py-2.5 rounded-xl text-xs font-bold uppercase shadow-aura-gold">${currentLang === 'es' ? '+ Carrito' : '+ Cart'}</button>
             </div>
           </div>
         </article>
       `).join('');
     }
 
+    // 14. Envíos y Formularios
     function handleTransferSubmit(e) {
       e.preventDefault();
       const origin = document.getElementById('transOrigin').value.trim();
@@ -998,6 +1776,13 @@
       const msgText = document.getElementById('contactMessage').value.trim();
       const msg = `¡Hola, Concierge Marina! ⚓\nConsulta general:\n• Nombre: ${name} (${phone})\n• Asunto: ${type}\n• Mensaje: ${msgText}`;
       window.open(`https://wa.me/529982274928?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function handleQuickSearch() {
+      const exp = document.getElementById('quickExpSelect').value;
+      if (exp === 'yates') navigate('yates');
+      else if (exp === 'transporte') navigate('transportacion');
+      else navigate('catalogo');
     }
   </script>
 </body>
