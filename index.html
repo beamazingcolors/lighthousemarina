@@ -179,7 +179,7 @@
   <div id="mobileMenuBackdrop" onclick="toggleMobileMenu()" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden xl:hidden transition-opacity"></div>
   <aside id="mobileMenu" class="fixed top-0 right-0 bottom-0 z-[60] w-72 max-w-[85vw] bg-white border-l border-auraBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col xl:hidden">
     <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-      <span class="font-serif text-base font-bold text-slate-900">Navegación</span>
+      <span class="font-serif text-base font-bold text-slate-900" data-i18n="nav.menuTitle">Navegación</span>
       <button onclick="toggleMobileMenu()" class="p-1 text-slate-400 hover:text-slate-800 text-2xl font-bold leading-none">✕</button>
     </div>
     <div class="p-5 space-y-4 text-xs uppercase tracking-widest font-semibold text-slate-700 flex-1 overflow-y-auto">
@@ -193,7 +193,7 @@
     </div>
     <div class="p-5 bg-slate-50 border-t border-slate-100 text-center">
       <a href="https://wa.me/529982274928" target="_blank" class="w-full inline-block btn-aura-gold py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-center">
-        WhatsApp Concierge
+        <span data-i18n="nav.concierge">WhatsApp Concierge</span>
       </a>
     </div>
   </aside>
@@ -226,8 +226,8 @@
           
           <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70">
             <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-0.5" data-i18n="dock.dockLabel">Muelle de Salida</span>
-            <span class="font-bold text-slate-800 text-xs sm:text-sm block">Plaza La Isla 1, Cancún</span>
-            <span class="text-[10px] text-auraTeal">Zona Hotelera Km 12.5</span>
+            <span class="font-bold text-slate-800 text-xs sm:text-sm block" data-i18n="dock.dockLocation">Plaza La Isla 1, Cancún</span>
+            <span class="text-[10px] text-auraTeal" data-i18n="dock.dockZone">Zona Hotelera Km 12.5</span>
           </div>
 
           <div class="p-3 bg-auraBgOff rounded-xl border border-slate-200/70">
@@ -316,7 +316,7 @@
         <span class="text-xs font-bold uppercase tracking-[0.25em] text-auraGold block mb-2 sm:mb-3" data-i18n="banner.tag">
           ✦ ATENCIÓN PERSONALIZADA EN MUELLE
         </span>
-        <h2 class="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal mb-3 sm:mb-4">
+        <h2 class="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal mb-3 sm:mb-4" data-i18n="banner.title">
           ¿Listo para Zarpar hacia el <span class="italic text-auraTealLight font-normal">Paraíso?</span>
         </h2>
         <p class="text-slate-300 text-xs sm:text-sm lg:text-base max-w-2xl mx-auto mb-6 sm:mb-8 font-light leading-relaxed" data-i18n="banner.subtitle">
@@ -353,39 +353,39 @@
         <div>
           <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.adults">Adultos</label>
           <select id="calcAdults" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
-            <option value="1">1 Adulto</option>
-            <option value="2" selected>2 Adultos</option>
-            <option value="3">3 Adultos</option>
-            <option value="4">4 Adultos</option>
-            <option value="6">6 Adultos</option>
-            <option value="8">8 Adultos</option>
-            <option value="10">10+ Adultos</option>
+            <option value="1" data-i18n="planner.paxAdult1">1 Adulto</option>
+            <option value="2" selected data-i18n="planner.paxAdult2">2 Adultos</option>
+            <option value="3" data-i18n="planner.paxAdult3">3 Adultos</option>
+            <option value="4" data-i18n="planner.paxAdult4">4 Adultos</option>
+            <option value="6" data-i18n="planner.paxAdult6">6 Adultos</option>
+            <option value="8" data-i18n="planner.paxAdult8">8 Adultos</option>
+            <option value="10" data-i18n="planner.paxAdult10">10+ Adultos</option>
           </select>
         </div>
 
         <div>
           <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.children">Niños</label>
           <select id="calcChildren" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
-            <option value="0" selected>0 Niños</option>
-            <option value="1">1 Niño</option>
-            <option value="2">2 Niños</option>
-            <option value="3">3 Niños</option>
-            <option value="4">4 Niños</option>
+            <option value="0" selected data-i18n="planner.paxChild0">0 Niños</option>
+            <option value="1" data-i18n="planner.paxChild1">1 Niño</option>
+            <option value="2" data-i18n="planner.paxChild2">2 Niños</option>
+            <option value="3" data-i18n="planner.paxChild3">3 Niños</option>
+            <option value="4" data-i18n="planner.paxChild4">4 Niños</option>
           </select>
         </div>
 
         <div>
           <label class="block text-slate-500 uppercase tracking-wider mb-1.5 font-bold" data-i18n="planner.days">Días de Actividades</label>
           <select id="calcDays" onchange="runTripPlanner()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 sm:p-3 text-slate-800 font-semibold focus:outline-none focus:border-auraTeal text-xs sm:text-sm">
-            <option value="1">1 Día de Tour</option>
-            <option value="2">2 Días de Tours</option>
-            <option value="3" selected>3 Días de Tours</option>
-            <option value="4">4 Días de Tours</option>
-            <option value="5">5 Días de Tours</option>
-            <option value="6">6 Días de Tours</option>
-            <option value="7">7 Días (1 Semana Completa)</option>
-            <option value="8">8 Días de Tours</option>
-            <option value="10">10 Días de Tours</option>
+            <option value="1" data-i18n="planner.days1">1 Día de Tour</option>
+            <option value="2" data-i18n="planner.days2">2 Días de Tours</option>
+            <option value="3" selected data-i18n="planner.days3">3 Días de Tours</option>
+            <option value="4" data-i18n="planner.days4">4 Días de Tours</option>
+            <option value="5" data-i18n="planner.days5">5 Días de Tours</option>
+            <option value="6" data-i18n="planner.days6">6 Días de Tours</option>
+            <option value="7" data-i18n="planner.days7">7 Días (1 Semana Completa)</option>
+            <option value="8" data-i18n="planner.days8">8 Días de Tours</option>
+            <option value="10" data-i18n="planner.days10">10 Días de Tours</option>
           </select>
         </div>
       </div>
@@ -757,7 +757,7 @@
 
       <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2 sm:gap-4 text-center sm:text-left">
         <span data-i18n="footer.copyright">&copy; 2026 Cancun Lighthouse Marina. Todos los derechos reservados.</span>
-        <span>Plaza La Isla 1 · Blvd. Kukulcán · Cancún, Q.R.</span>
+        <span data-i18n="footer.address">Plaza La Isla 1 · Blvd. Kukulcán · Cancún, Q.R.</span>
       </div>
     </div>
   </footer>
@@ -957,7 +957,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL/view?usp=drive_link",
     "driveId": "1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL",
     "notesEs": "Snorkel en arrecife barra libre y almuerzo buffet",
-    "notesEn": "Snorkel en arrecife barra libre y almuerzo buffet",
+    "notesEn": "Barrier reef snorkeling, domestic open bar, and beach club buffet lunch.",
     "img": "https://lh3.googleusercontent.com/d/1PvKB_brTBRJylbU6p7riiQAJ4_IycdJL=w800"
   },
   {
@@ -972,7 +972,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U/view?usp=drive_link",
     "driveId": "1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U",
     "notesEs": "Lancha rápida biplaza laguna Nichupté y snorkel Nizuc",
-    "notesEn": "Lancha rápida biplaza laguna Nichupté y snorkel Nizuc",
+    "notesEn": "Two-seater speedboat across Nichupté Lagoon and Punta Nizuc reef snorkeling.",
     "img": "https://lh3.googleusercontent.com/d/1pVsyPOAGlSsbkqotkO6MXOxfSztJty0U=w800"
   },
   {
@@ -987,7 +987,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD/view?usp=drive_link",
     "driveId": "1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD",
     "notesEs": "Jungle Tour + 30 min moto acuática",
-    "notesEn": "Jungle Tour + 30 min moto acuática",
+    "notesEn": "Jungle Tour speedboat plus 30 minutes of wave runner jet ski thrills.",
     "img": "https://lh3.googleusercontent.com/d/1Ys49cVjYkwXpSntgS0_h-sbY0Eubm3FD=w800"
   },
   {
@@ -1002,7 +1002,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX/view?usp=drive_link",
     "driveId": "1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX",
     "notesEs": "Flyboard 20 min + lancha en manglares",
-    "notesEn": "Flyboard 20 min + lancha en manglares",
+    "notesEn": "20-minute hydroflight Flyboard experience plus speedboat mangrove safari.",
     "img": "https://lh3.googleusercontent.com/d/1oQaLdSTtD5PzZB8VTFLSOMfNVm9Hz4AX=w800"
   },
   {
@@ -1017,7 +1017,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1sCWiRgonxtTZAfFnsGQINWFMyjzGORVG/view?usp=drive_link",
     "driveId": "1sCWiRgonxtTZAfFnsGQINWFMyjzGORVG",
     "notesEs": "Arrecifes vírgenes y museo subacuático MUSA",
-    "notesEn": "Arrecifes vírgenes y museo subacuático MUSA",
+    "notesEn": "Pristine coral reefs and MUSA Underwater Museum of Art diving excursion.",
     "img": "https://lh3.googleusercontent.com/d/1sCWiRgonxtTZAfFnsGQINWFMyjzGORVG=w800"
   },
   {
@@ -1032,7 +1032,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1yFTztl2xxl9miauwKa0CozTslNk8koeh/view?usp=drive_link",
     "driveId": "1yFTztl2xxl9miauwKa0CozTslNk8koeh",
     "notesEs": "Barco 100% transparente para ver fondo marino",
-    "notesEn": "Barco 100% transparente para ver fondo marino",
+    "notesEn": "100% transparent glass boat tour to admire sea life and coral reefs.",
     "img": "https://lh3.googleusercontent.com/d/1yFTztl2xxl9miauwKa0CozTslNk8koeh=w800"
   },
   {
@@ -1047,7 +1047,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp/view?usp=drive_link",
     "driveId": "1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp",
     "notesEs": "Cuatrimoto individual 4x4 tirolesas y cenote",
-    "notesEn": "Cuatrimoto individual 4x4 tirolesas y cenote",
+    "notesEn": "Single 4x4 ATV jungle trail, extreme zipline circuit, and sacred cenote.",
     "img": "https://lh3.googleusercontent.com/d/1msbLqhimAWh6Sym9qCaHWu5LV8DXPhPp=w800"
   },
   {
@@ -1062,7 +1062,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c/view?usp=drive_link",
     "driveId": "1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c",
     "notesEs": "Cuatrimoto doble compartida por persona",
-    "notesEn": "Cuatrimoto doble compartida por persona",
+    "notesEn": "Shared double 4x4 ATV jungle expedition, ziplines, and sacred cenote swim.",
     "img": "https://lh3.googleusercontent.com/d/1LA96DG4cNF-Neg1fH-yG_f8ir2iE-57c=w800"
   },
   {
@@ -1077,7 +1077,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b/view?usp=drive_link",
     "driveId": "1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b",
     "notesEs": "Galeón pirata nocturno cena corte New York",
-    "notesEn": "Galeón pirata nocturno cena corte New York",
+    "notesEn": "Pirate galleon night cruise with grilled New York steak dinner and live battle show.",
     "img": "https://lh3.googleusercontent.com/d/1qwuN11uKorYSoUpu0DYDqDvuuMoD0r3b=w800"
   },
   {
@@ -1092,7 +1092,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5/view?usp=drive_link",
     "driveId": "1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5",
     "notesEs": "Galeón pirata nocturno cena pechuga de pollo",
-    "notesEn": "Galeón pirata nocturno cena pechuga de pollo",
+    "notesEn": "Pirate galleon night cruise with grilled chicken breast dinner and live battle show.",
     "img": "https://lh3.googleusercontent.com/d/1wqpsAQrtGpFcAisnpSFhqMJBcrpGk8z5=w800"
   },
   {
@@ -1107,7 +1107,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW/view?usp=drive_link",
     "driveId": "1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW",
     "notesEs": "Ríos subterráneos show nocturno y comida buffet",
-    "notesEn": "Ríos subterráneos show nocturno y comida buffet",
+    "notesEn": "Underground rivers, world-class México Espectacular night show, and buffet lunch.",
     "img": "https://lh3.googleusercontent.com/d/1nNnhwvswFQN-DaMOOdOxfptrwGkEqFyW=w800"
   },
   {
@@ -1122,7 +1122,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7/view?usp=drive_link",
     "driveId": "1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7",
     "notesEs": "Caleta todo incluido snorkel y faro tobogán",
-    "notesEn": "Caleta todo incluido snorkel y faro tobogán",
+    "notesEn": "All-inclusive natural inlet, unlimited snorkeling, food, and scenic lighthouse slide.",
     "img": "https://lh3.googleusercontent.com/d/1GnXW4hpClM76KUhGIMa2H9dvnwNy89t7=w800"
   },
   {
@@ -1137,7 +1137,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF/view?usp=drive_link",
     "driveId": "1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF",
     "notesEs": "Tirolesas vehículos anfibios y cavernas",
-    "notesEn": "Tirolesas vehículos anfibios y cavernas",
+    "notesEn": "High-flying ziplines, amphibious jungle vehicles, underground caves, and buffet.",
     "img": "https://lh3.googleusercontent.com/d/1zsoK_cWnZyyCugjbmNQKfbIAnY-ffBzF=w800"
   },
   {
@@ -1152,7 +1152,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/11MZKROxwAKzKtz7pWaCEudrYEODUJJvv/view?usp=drive_link",
     "driveId": "11MZKROxwAKzKtz7pWaCEudrYEODUJJvv",
     "notesEs": "Aventura nocturna con antorchas y buffet BBQ",
-    "notesEn": "Aventura nocturna con antorchas y buffet BBQ",
+    "notesEn": "Torch-lit night adventure, illuminated ziplines, lava rivers, and BBQ buffet.",
     "img": "https://lh3.googleusercontent.com/d/11MZKROxwAKzKtz7pWaCEudrYEODUJJvv=w800"
   },
   {
@@ -1167,7 +1167,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1h-AvkTNT3yz8P56tieTegJg9VdE0Woix/view?usp=drive_link",
     "driveId": "1h-AvkTNT3yz8P56tieTegJg9VdE0Woix",
     "notesEs": "Trajineras mariachi cena mexicana y barra libre",
-    "notesEn": "Trajineras mariachi cena mexicana y barra libre",
+    "notesEn": "Traditional Mexican gondolas, live mariachi, fiesta dinner, and open bar.",
     "img": "https://lh3.googleusercontent.com/d/1h-AvkTNT3yz8P56tieTegJg9VdE0Woix=w800"
   },
   {
@@ -1182,7 +1182,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE/view?usp=drive_link",
     "driveId": "1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE",
     "notesEs": "Ruta exclusiva por 4 tipos de cenotes con rappel",
-    "notesEn": "Ruta exclusiva por 4 tipos de cenotes con rappel",
+    "notesEn": "Exclusive expedition through 4 sacred cenote types with assisted rappel and kayak.",
     "img": "https://lh3.googleusercontent.com/d/1g_PTz0tRM-_C1J0djf5J-DB9IsAaWTpE=w800"
   },
   {
@@ -1197,7 +1197,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh/view?usp=drive_link",
     "driveId": "1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh",
     "notesEs": "Parque sensorial ilusiones ópticas y vuelo tirolesa",
-    "notesEn": "Parque sensorial ilusiones ópticas y vuelo tirolesa",
+    "notesEn": "Sensory theme park featuring optical illusions, mud river, and bird flight zipline.",
     "img": "https://lh3.googleusercontent.com/d/1UknWCdq8cTnHNIQOZP5k8raKX_zHqaMh=w800"
   },
   {
@@ -1212,7 +1212,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP/view?usp=drive_link",
     "driveId": "1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP",
     "notesEs": "Transporte entrada ruinas cenote y comida yucateca",
-    "notesEn": "Transporte entrada ruinas cenote y comida yucateca",
+    "notesEn": "Round-trip transportation, archaeological ruins entry, sacred cenote, and Yucatecan buffet.",
     "img": "https://lh3.googleusercontent.com/d/1hkCpDL11Qtpvm3ok21cdB0mYlDqDwNcP=w800"
   },
   {
@@ -1227,7 +1227,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY/view?usp=drive_link",
     "driveId": "1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY",
     "notesEs": "Autobús de lujo desayuno ligero bebidas y Valladolid",
-    "notesEn": "Autobús de lujo desayuno ligero bebidas y Valladolid",
+    "notesEn": "Luxury coach with continental breakfast, open bar, ruins entry, cenote, and Valladolid.",
     "img": "https://lh3.googleusercontent.com/d/1W7pphAZUo2cWlhAe9ci70pqbqS1TRUyY=w800"
   },
   {
@@ -1242,7 +1242,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k/view?usp=drive_link",
     "driveId": "1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k",
     "notesEs": "Chichén Itzá + Tulum + Cobá + Cenote + Valladolid",
-    "notesEn": "Chichén Itzá + Tulum + Cobá + Cenote + Valladolid",
+    "notesEn": "Complete tour: Chichén Itzá + Tulum + Cobá + Sacred Cenote + Colonial Valladolid.",
     "img": "https://lh3.googleusercontent.com/d/1xJ0qMPLtjpLOhVnUn-OgG2i7naHWkd7k=w800"
   },
   {
@@ -1257,7 +1257,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR/view?usp=drive_link",
     "driveId": "1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR",
     "notesEs": "Versión ejecutiva 5 en 1 con transporte premier",
-    "notesEn": "Versión ejecutiva 5 en 1 con transporte premier",
+    "notesEn": "Executive 5-in-1 Maya circuit with premier transportation and VIP inclusions.",
     "img": "https://lh3.googleusercontent.com/d/1nnjzCMPHujuSu7aQ-pCvcbIXLTLF8biR=w800"
   },
   {
@@ -1272,7 +1272,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1pbZFMME_yc39v91Aft8MQYiRrtUKW--h/view?usp=drive_link",
     "driveId": "1pbZFMME_yc39v91Aft8MQYiRrtUKW--h",
     "notesEs": "Ruinas mayas + nado en caverna subterránea Hubiku",
-    "notesEn": "Ruinas mayas + nado en caverna subterránea Hubiku",
+    "notesEn": "Maya pyramids entry plus refreshing swim in underground Hubiku cenote cave.",
     "img": "https://lh3.googleusercontent.com/d/1pbZFMME_yc39v91Aft8MQYiRrtUKW--h=w800"
   },
   {
@@ -1287,7 +1287,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H/view?usp=drive_link",
     "driveId": "1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H",
     "notesEs": "Ruinas + cenote con haz de luz Suytún",
-    "notesEn": "Ruinas + cenote con haz de luz Suytún",
+    "notesEn": "Ruins exploration plus magical sunbeam photo opportunity at Suytún cenote cave.",
     "img": "https://lh3.googleusercontent.com/d/1RDXdrwD1GiJYo0GSa8FSuosgwftk9q8H=w800"
   },
   {
@@ -1302,7 +1302,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi/view?usp=drive_link",
     "driveId": "1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi",
     "notesEs": "Acrópolis con estucos + cenote Hubiku",
-    "notesEn": "Acrópolis con estucos + cenote Hubiku",
+    "notesEn": "Royal Acropolis stuccoes at Ek Balam plus underground Hubiku cenote cave.",
     "img": "https://lh3.googleusercontent.com/d/1MHhcwtQRTghyF4FRaxUUiMw_eQfRgRzi=w800"
   },
   {
@@ -1317,7 +1317,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY/view?usp=drive_link",
     "driveId": "1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY",
     "notesEs": "Espectáculo nocturno de luz y sonido en El Castillo",
-    "notesEn": "Espectáculo nocturno de luz y sonido en El Castillo",
+    "notesEn": "Night illumination and projection videomapping show on El Castillo pyramid.",
     "img": "https://lh3.googleusercontent.com/d/1ikLWA3AKajBIrfkEPDOTl93zFRpVWlBY=w800"
   },
   {
@@ -1332,7 +1332,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU/view?usp=drive_link",
     "driveId": "1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU",
     "notesEs": "Estrellas de mar El Cielo y arrecifes Palancar/Colombia",
-    "notesEn": "Estrellas de mar El Cielo y arrecifes Palancar/Colombia",
+    "notesEn": "El Cielo starfish sanctuary and Palancar & Colombia barrier reefs snorkeling.",
     "img": "https://lh3.googleusercontent.com/d/1VLue1Fe15AGGI-UwPoVrfbp9M7cWNerU=w800"
   },
   {
@@ -1347,7 +1347,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R/view?usp=drive_link",
     "driveId": "1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R",
     "notesEs": "Embarcación transparente hacia banco de estrellas",
-    "notesEn": "Embarcación transparente hacia banco de estrellas",
+    "notesEn": "Completely transparent boat cruise to El Cielo starfish sanctuary.",
     "img": "https://lh3.googleusercontent.com/d/1JUUDs2VTyv6UAJ181DWq0DFwCD7b6y0R=w800"
   },
   {
@@ -1362,7 +1362,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9/view?usp=drive_link",
     "driveId": "1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9",
     "notesEs": "Buggy convertible costa virgen y faro Celarain",
-    "notesEn": "Buggy convertible costa virgen y faro Celarain",
+    "notesEn": "Convertible buggy drive along wild Caribbean coastline and Celarain Lighthouse.",
     "img": "https://lh3.googleusercontent.com/d/1ZFcHyKpmzreOPFE6pkbafqyrdQGLcP-9=w800"
   },
   {
@@ -1377,7 +1377,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn/view?usp=drive_link",
     "driveId": "1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn",
     "notesEs": "Submarino turístico descenso 30 metros arrecife",
-    "notesEn": "Submarino turístico descenso 30 metros arrecife",
+    "notesEn": "Real tourist submarine dive down to 100 feet (30m) along Chankanaab reef.",
     "img": "https://lh3.googleusercontent.com/d/1sOQQnaGvMz_K5_Xcxqt35e5LvxMbkdFn=w800"
   },
   {
@@ -1392,7 +1392,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu/view?usp=drive_link",
     "driveId": "1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu",
     "notesEs": "Precio pendiente - consultar directamente",
-    "notesEn": "Precio pendiente - consultar directamente",
+    "notesEn": "Special combo: El Cielo snorkeling and transparent boat. Inquire for pricing.",
     "img": "https://lh3.googleusercontent.com/d/1DSB8YsByBt8WfVQewvkZp1QmLtYBkNPu=w800"
   },
   {
@@ -1407,7 +1407,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg/view?usp=drive_link",
     "driveId": "1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg",
     "notesEs": "Ferry redondo recorrido panorámico y club de playa",
-    "notesEn": "Ferry redondo recorrido panorámico y club de playa",
+    "notesEn": "Round-trip ferry crossing, scenic island tour, and oceanfront beach club.",
     "img": "https://lh3.googleusercontent.com/d/1nOzZNzlDbgxfwa79l9vHE0tDYOwgWhhg=w800"
   },
   {
@@ -1422,7 +1422,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc/view?usp=drive_link",
     "driveId": "1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc",
     "notesEs": "Ruinas acantilado y Parque Nacional Jaguar",
-    "notesEn": "Ruinas acantilado y Parque Nacional Jaguar",
+    "notesEn": "Cliffside archaeological zone and newly designated Jaguar National Park.",
     "img": "https://lh3.googleusercontent.com/d/1HQjgYRVErU5h4VJpAXlQCHKZNOKJHlnc=w800"
   },
   {
@@ -1437,7 +1437,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_/view?usp=drive_link",
     "driveId": "1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_",
     "notesEs": "Isla protegida santuario de aves y comida en playa",
-    "notesEn": "Isla protegida santuario de aves y comida en playa",
+    "notesEn": "Protected virgin national island, bird sanctuary, and beachside fresh fish lunch.",
     "img": "https://lh3.googleusercontent.com/d/1jvtTKCkFSjQYSwxXv1-3Ov4dlHBAMtb_=w800"
   },
   {
@@ -1452,7 +1452,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9/view?usp=drive_link",
     "driveId": "10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9",
     "notesEs": "Lancha Isla Pasión cenote Yalahau y Holbox",
-    "notesEn": "Lancha Isla Pasión cenote Yalahau y Holbox",
+    "notesEn": "Boat tour to Passion Island, freshwater Yalahau cenote spring, and Holbox.",
     "img": "https://lh3.googleusercontent.com/d/10Ax15rLCjDeTZKFaKulajGrk_9Jz-pD9=w800"
   },
   {
@@ -1467,7 +1467,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq/view?usp=drive_link",
     "driveId": "1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq",
     "notesEs": "Cruce en ferry con carrito de golf incluido",
-    "notesEn": "Cruce en ferry con carrito de golf incluido",
+    "notesEn": "Ferry crossing plus golf cart rental included to explore sandy island streets.",
     "img": "https://lh3.googleusercontent.com/d/1IW1-kP-dtTT0SNE8Nry_TVIyw7tYk6aq=w800"
   },
   {
@@ -1482,7 +1482,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I/view?usp=drive_link",
     "driveId": "10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I",
     "notesEs": "Transporte y ferry para explorar libremente",
-    "notesEn": "Transporte y ferry para explorar libremente",
+    "notesEn": "Round-trip bus transfer and ferry crossing for independent island exploration.",
     "img": "https://lh3.googleusercontent.com/d/10zVK0IwsxBLzxs6ZLwWyvIjctCIB7K8I=w800"
   },
   {
@@ -1497,7 +1497,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo/view?usp=drive_link",
     "driveId": "1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo",
     "notesEs": "Lagunas rosas safari de flamencos y baño maya",
-    "notesEn": "Lagunas rosas safari de flamencos y baño maya",
+    "notesEn": "Pink salt lakes, flamingo watching river safari, and ancient Mayan clay bath.",
     "img": "https://lh3.googleusercontent.com/d/1ZlQJg1pBduonzb8_C7b-igU_-rcy6pIo=w800"
   },
   {
@@ -1512,7 +1512,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR/view?usp=drive_link",
     "driveId": "1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR",
     "notesEs": "Pontón por los 7 colores de la laguna y cenotes",
-    "notesEn": "Pontón por los 7 colores de la laguna y cenotes",
+    "notesEn": "Scenic pontoon cruise across the 7-color lagoon, pirate channel, and cenotes.",
     "img": "https://lh3.googleusercontent.com/d/1z53ec2yFkB_bHE5FO0J3Y1_qt4YBb7nR=w800"
   },
   {
@@ -1527,7 +1527,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01/view?usp=drive_link",
     "driveId": "19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01",
     "notesEs": "Pase club de laguna con kayaks abiertos y comida",
-    "notesEn": "Pase club de laguna con kayaks abiertos y comida",
+    "notesEn": "Lagoonfront beach club day pass with open kayaks and lunch included.",
     "img": "https://lh3.googleusercontent.com/d/19qPZu_0TI3WOrjDc0gZqSVx-jT8pHM01=w800"
   },
   {
@@ -1542,7 +1542,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5/view?usp=drive_link",
     "driveId": "1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5",
     "notesEs": "Corriente natural suave entre estromatolitos",
-    "notesEn": "Corriente natural suave entre estromatolitos",
+    "notesEn": "Gentle natural water current float among ancient living stromatolites.",
     "img": "https://lh3.googleusercontent.com/d/1rgNybk7gHKGJQumw8T6K6TU8rzQJz_K5=w800"
   },
   {
@@ -1557,7 +1557,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi/view?usp=drive_link",
     "driveId": "1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi",
     "notesEs": "Transporte entrada Fuerte San Felipe y balneario",
-    "notesEn": "Transporte entrada Fuerte San Felipe y balneario",
+    "notesEn": "Round-trip transfer, Fort San Felipe admission, and public lagoon balneario.",
     "img": "https://lh3.googleusercontent.com/d/1VRKd9dvk8ZCPv1930ZVOAaVBcDyZo_vi=w800"
   },
   {
@@ -1572,7 +1572,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs/view?usp=drive_link",
     "driveId": "1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs",
     "notesEs": "4 cenotes y foto escultura Ven a la Luz",
-    "notesEn": "4 cenotes y foto escultura Ven a la Luz",
+    "notesEn": "4 sacred natural cenotes plus iconic \"Ven a la Luz\" Mother Nature sculpture.",
     "img": "https://lh3.googleusercontent.com/d/1B2oS7GRbq_4eZzmz1F_hdI0KKiZqb2Fs=w800"
   },
   {
@@ -1587,7 +1587,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB/view?usp=drive_link",
     "driveId": "1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB",
     "notesEs": "Acceso a los 4 cenotes con chaleco y guía",
-    "notesEn": "Acceso a los 4 cenotes con chaleco y guía",
+    "notesEn": "Guided access to all 4 natural cenotes with life jacket and certified guide.",
     "img": "https://lh3.googleusercontent.com/d/1CZD6Y2DGVJDkIWtYz9Iv150_FFsansaB=w800"
   },
   {
@@ -1602,7 +1602,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz/view?usp=drive_link",
     "driveId": "1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz",
     "notesEs": "Cenotes + tirolesas selváticas y comida buffet",
-    "notesEn": "Cenotes + tirolesas selváticas y comida buffet",
+    "notesEn": "4 natural cenotes plus jungle zipline circuit and buffet lunch.",
     "img": "https://lh3.googleusercontent.com/d/1ZHm9qyxqukoIOa-cwA-Ss544Vq0GDaKz=w800"
   },
   {
@@ -1617,7 +1617,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl/view?usp=drive_link",
     "driveId": "1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl",
     "notesEs": "Ruinas Tulum y nado guiado con tortugas Akumal",
-    "notesEn": "Ruinas Tulum y nado guiado con tortugas Akumal",
+    "notesEn": "Tulum oceanfront ruins plus guided open-sea snorkeling with wild sea turtles.",
     "img": "https://lh3.googleusercontent.com/d/1tnzW6Cz-6AD9TGwuYYzYBMM66ddE9sBl=w800"
   },
   {
@@ -1632,7 +1632,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1hr224aILTHbheOVGfcvc24993UR9qBze/view?usp=drive_link",
     "driveId": "1hr224aILTHbheOVGfcvc24993UR9qBze",
     "notesEs": "Cenote Dos Ojos y Gran Cenote",
-    "notesEn": "Cenote Dos Ojos y Gran Cenote",
+    "notesEn": "Tulum coastal ruins combined with swimming in iconic Dos Ojos & Gran Cenote.",
     "img": "https://lh3.googleusercontent.com/d/1hr224aILTHbheOVGfcvc24993UR9qBze=w800"
   },
   {
@@ -1647,7 +1647,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox/view?usp=drive_link",
     "driveId": "10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox",
     "notesEs": "Reserva UNESCO delfines silvestres y canales mayas",
-    "notesEn": "Reserva UNESCO delfines silvestres y canales mayas",
+    "notesEn": "UNESCO Biosphere safari with wild dolphin watching, coral reef, and canal float.",
     "img": "https://lh3.googleusercontent.com/d/10ASG2tRWJCdM9-nM0NX89KQqo9TzRxox=w800"
   },
   {
@@ -1662,7 +1662,7 @@
     "imgDriveUrl": "https://drive.google.com/file/d/1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F/view?usp=drive_link",
     "driveId": "1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F",
     "notesEs": "Cenotes en haciendas coloniales con comida típica",
-    "notesEn": "Cenotes en haciendas coloniales con comida típica",
+    "notesEn": "Colonial hacienda cenote trail with traditional regional Mayan cuisine.",
     "img": "https://lh3.googleusercontent.com/d/1oCx3QH0_5YfDH-mO2lnjDeOc70E8VR6F=w800"
   },
   {
@@ -1677,13 +1677,42 @@
     "imgDriveUrl": "https://drive.google.com/file/d/13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu/view?usp=drive_link",
     "driveId": "13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu",
     "notesEs": "Tirolesas sobre agua rappel y canotaje",
-    "notesEn": "Tirolesas sobre agua rappel y canotaje",
+    "notesEn": "Overwater ziplines, jungle cave rappel, and kayak exploration in sacred waters.",
     "img": "https://lh3.googleusercontent.com/d/13PhH2VtHhK5MtUMsf3TtNPqQGLC1UJyu=w800"
   }
 ];
 
     const I18N = {
       es: {
+        "banner.title": "¿Listo para Zarpar hacia el <span class=\"italic text-auraTealLight font-normal\">Paraíso?</span>",
+        "nav.menuTitle": "Navegación",
+        "nav.concierge": "WhatsApp Concierge",
+        "dock.dockLocation": "Plaza La Isla 1, Cancún",
+        "dock.dockZone": "Zona Hotelera Km 12.5",
+        "planner.paxAdult1": "1 Adulto",
+        "planner.paxAdult2": "2 Adultos",
+        "planner.paxAdult3": "3 Adultos",
+        "planner.paxAdult4": "4 Adultos",
+        "planner.paxAdult6": "6 Adultos",
+        "planner.paxAdult8": "8 Adultos",
+        "planner.paxAdult10": "10+ Adultos",
+        "planner.paxChild0": "0 Niños",
+        "planner.paxChild1": "1 Niño",
+        "planner.paxChild2": "2 Niños",
+        "planner.paxChild3": "3 Niños",
+        "planner.paxChild4": "4 Niños",
+        "planner.days1": "1 Día de Tour",
+        "planner.days2": "2 Días de Tours",
+        "planner.days3": "3 Días de Tours",
+        "planner.days4": "4 Días de Tours",
+        "planner.days5": "5 Días de Tours",
+        "planner.days6": "6 Días de Tours",
+        "planner.days7": "7 Días (1 Semana Completa)",
+        "planner.days8": "8 Días de Tours",
+        "planner.days10": "10 Días de Tours",
+        "footer.address": "Plaza La Isla 1 · Blvd. Kukulcán · Cancún, Q.R.",
+        "footer.street": "Muelle Plaza La Isla 1, Blvd. Kukulcán Km 12.5, Zona Hotelera, Cancún, Quintana Roo, México.",
+
         "nav.home": "Inicio",
         "nav.catalog": "Tours & Rutas",
         "nav.yachts": "Yates Privados",
@@ -1796,6 +1825,35 @@
         "footer.copyright": "&copy; 2026 Cancun Lighthouse Marina. Todos los derechos reservados."
       },
       en: {
+        "banner.title": "Ready to Set Sail into <span class=\"italic text-auraTealLight font-normal\">Paradise?</span>",
+        "nav.menuTitle": "Navigation",
+        "nav.concierge": "WhatsApp Concierge",
+        "dock.dockLocation": "Plaza La Isla 1, Cancun",
+        "dock.dockZone": "Hotel Zone Km 12.5",
+        "planner.paxAdult1": "1 Adult",
+        "planner.paxAdult2": "2 Adults",
+        "planner.paxAdult3": "3 Adults",
+        "planner.paxAdult4": "4 Adults",
+        "planner.paxAdult6": "6 Adults",
+        "planner.paxAdult8": "8 Adults",
+        "planner.paxAdult10": "10+ Adults",
+        "planner.paxChild0": "0 Children",
+        "planner.paxChild1": "1 Child",
+        "planner.paxChild2": "2 Children",
+        "planner.paxChild3": "3 Children",
+        "planner.paxChild4": "4 Children",
+        "planner.days1": "1 Tour Day",
+        "planner.days2": "2 Tour Days",
+        "planner.days3": "3 Tour Days",
+        "planner.days4": "4 Tour Days",
+        "planner.days5": "5 Tour Days",
+        "planner.days6": "6 Tour Days",
+        "planner.days7": "7 Days (Full Week)",
+        "planner.days8": "8 Tour Days",
+        "planner.days10": "10 Tour Days",
+        "footer.address": "Plaza La Isla 1 · Kukulcan Blvd · Cancun, Q.R.",
+        "footer.street": "Plaza La Isla 1 Marina, Kukulcan Blvd Km 12.5, Hotel Zone, Cancun, Quintana Roo, Mexico.",
+
         "nav.home": "Home",
         "nav.catalog": "Tours & Routes",
         "nav.yachts": "Private Yachts",
@@ -1909,6 +1967,221 @@
       }
     };
 
+    
+    // Diccionario de Traducciones Oficiales en Inglés para Catálogo
+    const TOUR_TRANSLATIONS = {
+    "cat-01": {
+        "nameEn": "Isla Mujeres Luxury Catamaran",
+        "notesEn": "Barrier reef snorkeling, domestic open bar, and beach club buffet lunch."
+    },
+    "jungle-01": {
+        "nameEn": "Jungle Tour Speedboat",
+        "notesEn": "Two-seater speedboat across Nichupté Lagoon and Punta Nizuc reef snorkeling."
+    },
+    "jungle-combo-01": {
+        "nameEn": "Jungle Tour Jetski Combo",
+        "notesEn": "Jungle Tour speedboat plus 30 minutes of wave runner jet ski thrills."
+    },
+    "jungle-combo-02": {
+        "nameEn": "Jungle Tour Flyboard Combo (20 min)",
+        "notesEn": "20-minute hydroflight Flyboard experience plus speedboat mangrove safari."
+    },
+    "buceo-01": {
+        "nameEn": "Cancun Scuba Diving",
+        "notesEn": "Pristine coral reefs and MUSA Underwater Museum of Art diving excursion."
+    },
+    "clear-boat-01": {
+        "nameEn": "100% Clear Transparent Boat",
+        "notesEn": "100% transparent glass boat tour to admire sea life and coral reefs."
+    },
+    "atv-single-01": {
+        "nameEn": "Single ATV Jungle Tour",
+        "notesEn": "Single 4x4 ATV jungle trail, extreme zipline circuit, and sacred cenote."
+    },
+    "atv-share-01": {
+        "nameEn": "Shared ATV Jungle Tour",
+        "notesEn": "Shared double 4x4 ATV jungle expedition, ziplines, and sacred cenote swim."
+    },
+    "hook-carne-01": {
+        "nameEn": "Captain Hook Steak Dinner Cruise",
+        "notesEn": "Pirate galleon night cruise with grilled New York steak dinner and live battle show."
+    },
+    "hook-pollo-01": {
+        "nameEn": "Captain Hook Chicken Dinner Cruise",
+        "notesEn": "Pirate galleon night cruise with grilled chicken breast dinner and live battle show."
+    },
+    "xcaret-plus": {
+        "nameEn": "Xcaret Plus All-Inclusive",
+        "notesEn": "Underground rivers, world-class México Espectacular night show, and buffet lunch."
+    },
+    "xel-ha": {
+        "nameEn": "Xel-Há Natural Waterpark",
+        "notesEn": "All-inclusive natural inlet, unlimited snorkeling, food, and scenic lighthouse slide."
+    },
+    "xplor-dia": {
+        "nameEn": "Xplor Adventure Day",
+        "notesEn": "High-flying ziplines, amphibious jungle vehicles, underground caves, and buffet."
+    },
+    "xplor-fuego": {
+        "nameEn": "Xplor Fuego Night Adventure",
+        "notesEn": "Torch-lit night adventure, illuminated ziplines, lava rivers, and BBQ buffet."
+    },
+    "xoximilco": {
+        "nameEn": "Xoximilco Mexican Fiesta",
+        "notesEn": "Traditional Mexican gondolas, live mariachi, fiesta dinner, and open bar."
+    },
+    "xenotes": {
+        "nameEn": "Xenotes Oasis Maya",
+        "notesEn": "Exclusive expedition through 4 sacred cenote types with assisted rappel and kayak."
+    },
+    "xenses": {
+        "nameEn": "Xenses Sensory Park",
+        "notesEn": "Sensory theme park featuring optical illusions, mud river, and bird flight zipline."
+    },
+    "chichen-clasico": {
+        "nameEn": "Chichen Itza Classic",
+        "notesEn": "Round-trip transportation, archaeological ruins entry, sacred cenote, and Yucatecan buffet."
+    },
+    "chichen-vip": {
+        "nameEn": "Chichen Itza VIP Deluxe",
+        "notesEn": "Luxury coach with continental breakfast, open bar, ruins entry, cenote, and Valladolid."
+    },
+    "chichen-5x1-clasico": {
+        "nameEn": "5-in-1 Maya Classic Tour",
+        "notesEn": "Complete tour: Chichén Itzá + Tulum + Cobá + Sacred Cenote + Colonial Valladolid."
+    },
+    "chichen-5x1-diamante": {
+        "nameEn": "5-in-1 Diamond Experience",
+        "notesEn": "Executive 5-in-1 Maya circuit with premier transportation and VIP inclusions."
+    },
+    "chichen-hubiku": {
+        "nameEn": "Chichen Itza & Hubiku Cenote",
+        "notesEn": "Maya pyramids entry plus refreshing swim in underground Hubiku cenote cave."
+    },
+    "chichen-suyrun": {
+        "nameEn": "Chichen Itza & Suytún Cave",
+        "notesEn": "Ruins exploration plus magical sunbeam photo opportunity at Suytún cenote cave."
+    },
+    "ek-balam-hubiku": {
+        "nameEn": "Ek Balam Ruins & Cenote Hubiku",
+        "notesEn": "Royal Acropolis stuccoes at Ek Balam plus underground Hubiku cenote cave."
+    },
+    "noches-kukulcan": {
+        "nameEn": "Kukulcan Light & Sound Nights",
+        "notesEn": "Night illumination and projection videomapping show on El Castillo pyramid."
+    },
+    "coz-cielo-lancha": {
+        "nameEn": "Cozumel El Cielo Snorkel Boat",
+        "notesEn": "El Cielo starfish sanctuary and Palancar & Colombia barrier reefs snorkeling."
+    },
+    "coz-cielo-transp": {
+        "nameEn": "Cozumel Clear Boat to El Cielo",
+        "notesEn": "Completely transparent boat cruise to El Cielo starfish sanctuary."
+    },
+    "coz-buggy": {
+        "nameEn": "Cozumel Island Buggy Adventure",
+        "notesEn": "Convertible buggy drive along wild Caribbean coastline and Celarain Lighthouse."
+    },
+    "coz-submarino": {
+        "nameEn": "Atlantis Submarine Cozumel",
+        "notesEn": "Real tourist submarine dive down to 100 feet (30m) along Chankanaab reef."
+    },
+    "coz-combo-cielo-clear": {
+        "nameEn": "Cozumel Combo El Cielo & Clear Boat",
+        "notesEn": "Special combo: El Cielo snorkeling and transparent boat. Inquire for pricing."
+    },
+    "coz-economico": {
+        "nameEn": "Cozumel Island Budget Day Trip",
+        "notesEn": "Round-trip ferry crossing, scenic island tour, and oceanfront beach club."
+    },
+    "tulum-jaguar": {
+        "nameEn": "Tulum Jaguar National Park",
+        "notesEn": "Cliffside archaeological zone and newly designated Jaguar National Park."
+    },
+    "contoy-01": {
+        "nameEn": "Contoy Island National Sanctuary",
+        "notesEn": "Protected virgin national island, bird sanctuary, and beachside fresh fish lunch."
+    },
+    "holbox-plus": {
+        "nameEn": "Holbox Plus & Yalahau Cenote",
+        "notesEn": "Boat tour to Passion Island, freshwater Yalahau cenote spring, and Holbox."
+    },
+    "holbox-golf": {
+        "nameEn": "Holbox with Golf Cart Explorer",
+        "notesEn": "Ferry crossing plus golf cart rental included to explore sandy island streets."
+    },
+    "holbox-econ": {
+        "nameEn": "Holbox Budget Explorer",
+        "notesEn": "Round-trip bus transfer and ferry crossing for independent island exploration."
+    },
+    "coloradas-rio": {
+        "nameEn": "Pink Lakes Las Coloradas & Flamingos",
+        "notesEn": "Pink salt lakes, flamingo watching river safari, and ancient Mayan clay bath."
+    },
+    "bacalar-plus": {
+        "nameEn": "Bacalar Plus & Pontoon Cruise",
+        "notesEn": "Scenic pontoon cruise across the 7-color lagoon, pirate channel, and cenotes."
+    },
+    "bacalar-club": {
+        "nameEn": "Bacalar Beach Club & Kayak",
+        "notesEn": "Lagoonfront beach club day pass with open kayaks and lunch included."
+    },
+    "bacalar-rapidos": {
+        "nameEn": "Bacalar Rapids & Stromatolites",
+        "notesEn": "Gentle natural water current float among ancient living stromatolites."
+    },
+    "bacalar-econ": {
+        "nameEn": "Bacalar Day Trip Express",
+        "notesEn": "Round-trip transfer, Fort San Felipe admission, and public lagoon balneario."
+    },
+    "tortuga-naturaleza": {
+        "nameEn": "Casa Tortuga & Mother Nature Sculpture",
+        "notesEn": "4 sacred natural cenotes plus iconic \"Ven a la Luz\" Mother Nature sculpture."
+    },
+    "tortuga-econ": {
+        "nameEn": "Casa Tortuga Basic Cenotes",
+        "notesEn": "Guided access to all 4 natural cenotes with life jacket and certified guide."
+    },
+    "tortuga-silver": {
+        "nameEn": "Casa Tortuga Silver All-In",
+        "notesEn": "4 natural cenotes plus jungle zipline circuit and buffet lunch."
+    },
+    "tulum-akumal": {
+        "nameEn": "Tulum & Akumal Turtle Swim",
+        "notesEn": "Tulum oceanfront ruins plus guided open-sea snorkeling with wild sea turtles."
+    },
+    "tulum-dos-ojos": {
+        "nameEn": "Tulum & Sacred Cenotes Dos Ojos",
+        "notesEn": "Tulum coastal ruins combined with swimming in iconic Dos Ojos & Gran Cenote."
+    },
+    "sian-kaan": {
+        "nameEn": "Sian Ka'an Biosphere Safari",
+        "notesEn": "UNESCO Biosphere safari with wild dolphin watching, coral reef, and canal float."
+    },
+    "cenotes-yucatan": {
+        "nameEn": "Yucatan Sacred Cenote Trail",
+        "notesEn": "Colonial hacienda cenote trail with traditional regional Mayan cuisine."
+    },
+    "aventura-cenote": {
+        "nameEn": "Cenote Zipline & Rappel Adventure",
+        "notesEn": "Overwater ziplines, jungle cave rappel, and kayak exploration in sacred waters."
+    }
+};
+
+    function getCategoryName(categoryKey) {
+      const catMap = {
+        "Acuáticas": { es: "Acuáticas", en: "Water Tours" },
+        "Parques": { es: "Parques Temáticos", en: "Theme Parks" },
+        "Cultural": { es: "Cultural e Historia", en: "Cultural & Ruins" },
+        "Aventura": { es: "Aventura Extrema", en: "Adventure" },
+        "Naturaleza": { es: "Naturaleza & Ecoturismo", en: "Nature & Eco-Tours" }
+      };
+      if (catMap[categoryKey]) {
+        return currentLang === "es" ? catMap[categoryKey].es : catMap[categoryKey].en;
+      }
+      return categoryKey;
+    }
+
     async function syncDataFromGoogleSheet() {
       const TSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS9QCXw__gIXQV2I-Ezd-UJI9g38-p89nVrAx39w21enGRB0EvwkFaveUqUM3NrmvoNfuzMF2gkAYSG/pub?output=tsv";
       try {
@@ -1968,7 +2241,8 @@
             driveId: driveId,
             img: getDriveImageUrl(driveId),
             notesEs: t.Notas_Operativas,
-            notesEn: t.Notas_Operativas
+            notesEn: (TOUR_TRANSLATIONS[t.ID] && TOUR_TRANSLATIONS[t.ID].notesEn) ? TOUR_TRANSLATIONS[t.ID].notesEn : t.Notas_Operativas,
+            nameEn: (TOUR_TRANSLATIONS[t.ID] && TOUR_TRANSLATIONS[t.ID].nameEn) ? TOUR_TRANSLATIONS[t.ID].nameEn : (t.Nombre_EN || t.Nombre_ES)
           };
         });
 
@@ -2101,6 +2375,15 @@
       currentLang = currentLang === "es" ? "en" : "es";
       document.getElementById("langToggleBtn").innerText = currentLang === "es" ? "ES | EN" : "EN | ES";
 
+      // Título de la página
+      const pageTitle = document.getElementById("metaPageTitle");
+      if (pageTitle) {
+        pageTitle.innerText = currentLang === "es"
+          ? "Cancun Lighthouse Marina — El Caribe Mexicano en su Máxima Expresión de Lujo"
+          : "Cancun Lighthouse Marina — The Mexican Caribbean in Its Purest Luxury";
+      }
+
+      // Actualizar todos los elementos con data-i18n
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         if (I18N[currentLang] && I18N[currentLang][key]) {
@@ -2121,16 +2404,25 @@
       if (searchInp) searchInp.placeholder = currentLang === "es" ? "Buscar por nombre..." : "Search by name...";
 
       const transOrig = document.getElementById("transOrigin");
-      if (transOrig) transOrig.placeholder = currentLang === "es" ? "Aeropuerto de Cancún (CUN) o Hotel..." : "Cancun Airport (CUN) or Hotel...";
+      if (transOrig) transOrig.placeholder = currentLang === "es" ? "Ej. Aeropuerto T4, Hotel..." : "E.g. Cancun Airport T4, Hotel...";
 
       const transDest = document.getElementById("transDestination");
-      if (transDest) transDest.placeholder = currentLang === "es" ? "Muelle Plaza La Isla 1 o Hotel..." : "Plaza La Isla 1 Marina or Hotel...";
+      if (transDest) transDest.placeholder = currentLang === "es" ? "Ej. Plaza La Isla 1, Tulum..." : "E.g. Plaza La Isla 1, Tulum...";
+
+      const transName = document.getElementById("transName");
+      if (transName) transName.placeholder = currentLang === "es" ? "Roberto Gómez" : "John Doe";
+
+      const contactName = document.getElementById("contactName");
+      if (contactName) contactName.placeholder = currentLang === "es" ? "Roberto Gómez" : "John Doe";
+
+      const contactEmail = document.getElementById("contactEmail");
+      if (contactEmail) contactEmail.placeholder = currentLang === "es" ? "roberto@ejemplo.com" : "john@example.com";
 
       const contactMsg = document.getElementById("contactMessage");
       if (contactMsg) contactMsg.placeholder = currentLang === "es" ? "Cuéntanos fechas, pasajeros o requerimientos..." : "Tell us dates, guests or specific requirements...";
 
       const cartName = document.getElementById("cartCustomerName");
-      if (cartName) cartName.placeholder = currentLang === "es" ? "Nombre del Titular" : "Lead Guest Name";
+      if (cartName) cartName.placeholder = currentLang === "es" ? "Tu Nombre Completo *" : "Lead Guest Full Name *";
 
       renderHomeFeatured();
       initCategoryFilters();
@@ -2432,7 +2724,7 @@
 
         content.innerHTML = `
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-auraTeal block mb-1">${item.category}</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-auraTeal block mb-1">${getCategoryName(item.category)}</span>
             <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">${currentLang === "es" ? item.nameEs : item.nameEn}</h2>
             
             <div class="h-44 sm:h-64 w-full rounded-xl overflow-hidden mb-4 sm:mb-5 bg-slate-100">
@@ -2630,7 +2922,7 @@
                   </div>
                 </div>
                 <div class="text-right flex flex-col items-end">
-                  <button onclick="removeFromCart('${item.cartId}')" class="text-slate-400 hover:text-red-500 font-bold p-1" title="Eliminar">✕</button>
+                  <button onclick="removeFromCart('${item.cartId}')" class="text-slate-400 hover:text-red-500 font-bold p-1" title="${currentLang === "es" ? "Eliminar" : "Remove"}">✕</button>
                   <span class="font-serif text-sm sm:text-base font-bold text-auraNavy mt-1">${priceStr}</span>
                 </div>
               </div>
@@ -2644,7 +2936,7 @@
                   ${(actList || []).map((act, actIdx) => `
                     <div class="bg-white p-2 rounded-lg border border-slate-200 text-xs">
                       <div class="flex items-center gap-1 font-bold text-slate-800">
-                        <span class="text-auraGold text-[11px]">Día ${actIdx + 1}:</span>
+                        <span class="text-auraGold text-[11px]">${currentLang === "es" ? "Día " + (actIdx + 1) : "Day " + (actIdx + 1)}:</span>
                         <span>${act.name}</span>
                       </div>
                       <p class="text-[11px] text-slate-500 mt-0.5 leading-snug">${act.desc}</p>
@@ -2672,14 +2964,22 @@
             priceStr = getDisplayPrice(item.priceUsd);
           }
         }
+        const singleTour = item.type === "Tour" ? CATALOG.find(t => t.id === item.id) : null;
+        const singleYacht = item.type === "Yate" ? YACHTS_FLEET.find(y => y.id === item.id) : null;
+        const itemTypeDisplay = item.type === "Yate" ? (currentLang === "es" ? "Yate" : "Yacht") : (item.type === "Tour" ? "Tour" : item.type);
+        const itemTitleDisplay = singleYacht 
+          ? (currentLang === "es" ? `Yate ${singleYacht.name} (${singleYacht.model})` : `Yacht ${singleYacht.name} (${singleYacht.model})`)
+          : (singleTour ? (currentLang === "es" ? singleTour.nameEs : singleTour.nameEn) : item.title);
+
         return `
           <div class="bg-slate-50 p-3 sm:p-3.5 rounded-xl border border-slate-200 flex justify-between items-center">
             <div>
-              <span class="text-xs text-auraTeal font-bold uppercase">${item.type}</span>
-              <h4 class="font-serif text-xs sm:text-sm font-bold text-slate-900">${item.title}</h4>
+              <span class="text-xs text-auraTeal font-bold uppercase">${itemTypeDisplay}</span>
+              <h4 class="font-serif text-xs sm:text-sm font-bold text-slate-900">${itemTitleDisplay}</h4>
+              ${singleYacht && item.duration ? `<div class="text-[11px] text-slate-500 font-medium">${item.duration} ${currentLang === "es" ? "Horas de Charter" : "Hours Charter"}</div>` : ""}
               <span class="text-xs font-bold text-auraNavy">${priceStr}</span>
             </div>
-            <button onclick="removeFromCart('${item.cartId}')" class="text-slate-400 hover:text-red-500 font-bold p-1" title="Eliminar">✕</button>
+            <button onclick="removeFromCart('${item.cartId}')" class="text-slate-400 hover:text-red-500 font-bold p-1" title="${currentLang === "es" ? "Eliminar" : "Remove"}">✕</button>
           </div>
         `;
       }).join("");
@@ -2704,16 +3004,27 @@
       
       const itemsList = cart.map((it, i) => {
         if (it.type === "Paquete") {
-          const actList = (currentLang === "es" ? it.itemsEs : it.itemsEn).map((a, ai) => "   • Día " + (ai + 1) + ": " + a.name + " (" + a.desc + ")").join("\n");
-          return (i + 1) + ". PAQUETE " + (currentLang === "es" ? it.nameEs : it.nameEn) + " (" + it.days + " Días)\n   • Huéspedes: " + it.adults + " Adultos" + (it.children > 0 ? " + " + it.children + " Niños" : "") + "\n   • Desglose de actividades:\n" + actList;
+          const actList = (currentLang === "es" ? it.itemsEs : it.itemsEn).map((a, ai) => 
+            (currentLang === "es" ? "   • Día " : "   • Day ") + (ai + 1) + ": " + a.name + " (" + a.desc + ")"
+          ).join("\n");
+          return currentLang === "es"
+            ? (i + 1) + ". PAQUETE " + it.nameEs + " (" + it.days + " Días)\n   • Huéspedes: " + it.adults + " Adultos" + (it.children > 0 ? " + " + it.children + " Niños" : "") + "\n   • Desglose de actividades:\n" + actList
+            : (i + 1) + ". PACKAGE " + it.nameEn + " (" + it.days + " Days)\n   • Guests: " + it.adults + " Adults" + (it.children > 0 ? " + " + it.children + " Children" : "") + "\n   • Activities Breakdown:\n" + actList;
         } else if (it.type === "Yate") {
-          return (i + 1) + ". " + it.title + " (" + it.duration + " Horas)";
+          const yacht = YACHTS_FLEET.find(y => y.id === it.id);
+          const yTitle = yacht ? (currentLang === "es" ? `Yate ${yacht.name} (${yacht.model})` : `Yacht ${yacht.name} (${yacht.model})`) : it.title;
+          return (i + 1) + ". " + yTitle + " (" + it.duration + (currentLang === "es" ? " Horas)" : " Hours)");
         } else {
-          return (i + 1) + ". " + it.title;
+          const tour = CATALOG.find(t => t.id === it.id);
+          const tTitle = tour ? (currentLang === "es" ? tour.nameEs : tour.nameEn) : it.title;
+          return (i + 1) + ". " + tTitle;
         }
       }).join("\n\n");
       
-      const msg = "¡Hola, Cancun Lighthouse Marina! ⚓\nCotización formal de carrito de experiencias:\n• Titular: " + name + "\n• Rango de Vacaciones: Del " + sDate + " al " + eDate + "\n• " + nightsText + "\n\nACTIVIDADES / PAQUETES:\n" + itemsList + "\n\nTOTAL ESTIMADO: " + total;
+      const msg = currentLang === "es"
+        ? "¡Hola, Cancun Lighthouse Marina! ⚓\nCotización formal de carrito de experiencias:\n• Titular: " + name + "\n• Rango de Vacaciones: Del " + sDate + " al " + eDate + "\n• " + nightsText + "\n\nACTIVIDADES / PAQUETES:\n" + itemsList + "\n\nTOTAL ESTIMADO: " + total
+        : "Hello, Cancun Lighthouse Marina! ⚓\nOfficial Experience Quote Request:\n• Lead Guest: " + name + "\n• Vacation Dates: From " + sDate + " to " + eDate + "\n• " + nightsText + "\n\nACTIVITIES / PACKAGES:\n" + itemsList + "\n\nESTIMATED TOTAL: " + total;
+
       window.open("https://wa.me/529982274928?text=" + encodeURIComponent(msg), "_blank");
     }
 
@@ -2927,7 +3238,7 @@
 
       const filtered = CATALOG.filter(item => {
         const matchesCategory = selectedCategory === "Todas" || item.category === selectedCategory;
-        const nameToSearch = (item.nameEs + " " + item.nameEn + " " + item.notesEs).toLowerCase();
+        const nameToSearch = (item.nameEs + " " + item.nameEn + " " + item.notesEs + " " + (item.notesEn || "")).toLowerCase();
         const matchesSearch = !searchQuery || nameToSearch.includes(searchQuery);
         return matchesCategory && matchesSearch;
       });
@@ -2953,7 +3264,7 @@
                 <img src="${itemImg}" alt="${first.nameEs}" class="w-full h-full object-cover hover:scale-105 transition-transform" onerror="handleImgError(this)" loading="lazy" decoding="async" />
               </div>
               <div class="p-4 sm:p-6">
-                <span class="text-xs uppercase font-bold text-auraTeal tracking-widest block mb-1">${first.category}</span>
+                <span class="text-xs uppercase font-bold text-auraTeal tracking-widest block mb-1">${getCategoryName(first.category)}</span>
                 <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-1">${currentLang === "es" ? first.nameEs : first.nameEn}</h3>
                 <p class="text-xs text-slate-500 mb-3 sm:mb-4 line-clamp-2">${description}</p>
               </div>
@@ -2984,7 +3295,10 @@
       const name = document.getElementById("transName").value.trim();
       const phone = document.getElementById("transPhone").value.trim();
 
-      const msg = "¡Hola, Cancun Lighthouse Marina! ⚓\nDeseo cotizar TRANSPORTACIÓN PRIVADA:\n\n• Titular: " + name + " (" + phone + ")\n• Origen: " + origin + "\n• Destino: " + destination + "\n• Pasajeros: " + pax + "\n• Modalidad: " + tripType + "\n• Fecha: " + date;
+      const msg = currentLang === "es"
+        ? "¡Hola, Cancun Lighthouse Marina! ⚓\nDeseo cotizar TRANSPORTACIÓN PRIVADA:\n\n• Titular: " + name + " (" + phone + ")\n• Origen: " + origin + "\n• Destino: " + destination + "\n• Pasajeros: " + pax + "\n• Modalidad: " + tripType + "\n• Fecha: " + date
+        : "Hello, Cancun Lighthouse Marina! ⚓\nI would like to quote PRIVATE TRANSPORTATION:\n\n• Lead Guest: " + name + " (" + phone + ")\n• Origin: " + origin + "\n• Destination: " + destination + "\n• Passengers: " + pax + "\n• Transfer Type: " + tripType + "\n• Service Date: " + date;
+
       window.open("https://wa.me/529982274928?text=" + encodeURIComponent(msg), "_blank");
     }
 
@@ -2994,7 +3308,11 @@
       const phone = document.getElementById("contactPhone").value.trim();
       const type = document.getElementById("contactType").value;
       const msgText = document.getElementById("contactMessage").value.trim();
-      const msg = "¡Hola, Concierge Marina! ⚓\nConsulta general:\n• Nombre: " + name + " (" + phone + ")\n• Asunto: " + type + "\n• Mensaje: " + msgText;
+      
+      const msg = currentLang === "es"
+        ? "¡Hola, Concierge Marina! ⚓\nConsulta general:\n• Nombre: " + name + " (" + phone + ")\n• Asunto: " + type + "\n• Mensaje: " + msgText
+        : "Hello, Marina Concierge! ⚓\nGeneral Inquiry:\n• Name: " + name + " (" + phone + ")\n• Subject: " + type + "\n• Message: " + msgText;
+
       window.open("https://wa.me/529982274928?text=" + encodeURIComponent(msg), "_blank");
     }
 
